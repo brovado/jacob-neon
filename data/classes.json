@@ -21,7 +21,16 @@
         "label": "Field Repairs",
         "desc": "Choice options sometimes gain a 'repair' solution for better outcomes."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 1,
+      "craft": 4,
+      "defense": 4,
+      "ritual": 1,
+      "negotiation": 2,
+      "camp": 2
+    }
   },
   {
     "key": "leatherworker",
@@ -45,7 +54,16 @@
         "label": "Patchwork",
         "desc": "Small Wounds can be stabilized without supply loss."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 3,
+      "intrigue": 2,
+      "craft": 2,
+      "defense": 2,
+      "ritual": 1,
+      "negotiation": 2,
+      "camp": 3
+    }
   },
   {
     "key": "relicator",
@@ -69,7 +87,16 @@
         "label": "Warding Tricks",
         "desc": "One 'prevent death' event per run if Wounds are not extreme."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 3,
+      "craft": 2,
+      "defense": 1,
+      "ritual": 4,
+      "negotiation": 2,
+      "camp": 2
+    }
   },
   {
     "key": "alchemist",
@@ -93,7 +120,16 @@
         "label": "Volatile Solutions",
         "desc": "Big swings: some choices grant huge payoff with risk."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 2,
+      "craft": 3,
+      "defense": 1,
+      "ritual": 3,
+      "negotiation": 2,
+      "camp": 2
+    }
   },
   {
     "key": "architect",
@@ -117,7 +153,16 @@
         "label": "Route Planning",
         "desc": "Reduce travel penalties; improve success in 'hold position' scenes."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 1,
+      "craft": 4,
+      "defense": 4,
+      "ritual": 1,
+      "negotiation": 2,
+      "camp": 3
+    }
   },
   {
     "key": "historian",
@@ -141,7 +186,16 @@
         "label": "Truth Seeker",
         "desc": "Better outcomes when investigating league corruption."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 4,
+      "craft": 2,
+      "defense": 1,
+      "ritual": 3,
+      "negotiation": 3,
+      "camp": 2
+    }
   },
   {
     "key": "cartographer",
@@ -165,7 +219,16 @@
         "label": "Weather Eye",
         "desc": "Avoid Wounds in storms and aerial encounters more often."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 4,
+      "intrigue": 2,
+      "craft": 2,
+      "defense": 2,
+      "ritual": 1,
+      "negotiation": 2,
+      "camp": 2
+    }
   },
   {
     "key": "quartermaster",
@@ -189,7 +252,16 @@
         "label": "Barter",
         "desc": "Better village trade outcomes; supplies gains are bigger."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 3,
+      "intrigue": 2,
+      "craft": 2,
+      "defense": 2,
+      "ritual": 1,
+      "negotiation": 4,
+      "camp": 3
+    }
   },
   {
     "key": "infobroker",
@@ -213,7 +285,16 @@
         "label": "Leverage",
         "desc": "In Act 2, can redirect danger toward hired muscle (affects who dies)."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 4,
+      "craft": 1,
+      "defense": 1,
+      "ritual": 2,
+      "negotiation": 4,
+      "camp": 2
+    }
   },
   {
     "key": "bard",
@@ -237,6 +318,15 @@
         "label": "Spotlight",
         "desc": "High visibility: higher Suspicion risk, but better social gains."
       }
-    ]
+    ],
+    "sceneWeights": {
+      "travel": 2,
+      "intrigue": 3,
+      "craft": 1,
+      "defense": 1,
+      "ritual": 2,
+      "negotiation": 3,
+      "camp": 4
+    }
   }
 ]
