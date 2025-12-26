@@ -31,8 +31,13 @@ function defaultState(){
 
 function saveState(st){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(st));
-  $("#saveHint").textContent = "Saved";
-  setTimeout(()=>$("#saveHint").textContent="", 800);
+  const hint = $("#saveHint");
+  if(!hint) return;
+  hint.textContent = "Saved";
+  setTimeout(()=>{
+    const current = $("#saveHint");
+    if(current) current.textContent = "";
+  }, 800);
 }
 
 function loadState(){
@@ -140,7 +145,7 @@ function applyClassPassive(state, panel){
   if(!c) return;
 
   // examples (you can expand these)
-  if(panel.scene === "road-02_harpies"){
+  if(panel?.scene === "road-02_harpies"){
     if(c === "cartographer") state.stats.wounds = Math.max(0, state.stats.wounds - 1);
     if(c === "smith") state.stats.morale = clamp(state.stats.morale + 1, -20, 20);
   }
@@ -199,12 +204,21 @@ function setHeaderBadges(state, panel, sceneTitle){
 function renderPanel(panel, ctx){
   const {state, classes, npcs, scenesByKey, panels} = ctx;
 
+  if(!panel){
+    const container = $("#panelBody");
+    if(container){
+      container.innerHTML = `<div class="linebox">No panel found. Check data/panels.json.</div>`;
+    }
+    return;
+  }
+
   // passive class effects (kept light)
   applyClassPassive(state, panel);
 
   const container = $("#panelBody");
-  container.innerHTML = "";
-  $("#panelImg").src = panel.image || "assets/panels/placeholder_choice.svg";
+  if(container) container.innerHTML = "";
+  const panelImg = $("#panelImg");
+  if(panelImg) panelImg.src = panel.image || "assets/panels/placeholder_choice.svg";
 
   const sceneTitle = scenesByKey[panel.scene]?.title ?? panel.scene;
   setHeaderBadges(state, panel, sceneTitle);
@@ -465,6 +479,11 @@ async function main(){
   state.dead = state.dead || [];
   state.party = state.party || defaultState().party.slice();
   state.idx = Number.isFinite(state.idx) ? state.idx : 0;
+  if(panels.length > 0){
+    state.idx = clamp(state.idx, 0, panels.length - 1);
+  }else{
+    state.idx = 0;
+  }
   state.nightActionsLeft = Number.isFinite(state.nightActionsLeft) ? state.nightActionsLeft : 2;
 
   const ctx = {state, classes, npcs, panels, scenesByKey};
