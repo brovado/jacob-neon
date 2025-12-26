@@ -4,7 +4,7 @@
     "scene": "act0-01_cover",
     "act": 0,
     "kind": "narration",
-    "image": "assets/panels/cover.svg",
+    "image": "assets/panels/header.png",
     "title": "Cover \u2014 Neon Pilgrimage",
     "text": "The neon district flickers as the pilgrimage gathers. You carry the league\u2019s blessing and the weight of a chest that refuses to open. Tonight is the last quiet before the road.",
     "text_variants": {
@@ -16,7 +16,7 @@
     "scene": "act0-02_pub_orb",
     "act": 0,
     "kind": "dialogue",
-    "image": "assets/panels/pub_orb_game.svg",
+    "image": "assets/panels/bar.png",
     "speaker": "Belander",
     "text": "You bought the table; I brought the orb. Win this round and you can say you beat a league veteran.",
     "text_variants": {
@@ -28,7 +28,7 @@
     "scene": "act0-03_gift",
     "act": 0,
     "kind": "choice",
-    "image": "assets/panels/gift_items.svg",
+    "image": "assets/panels/gifts.png",
     "prompt": "Before you leave, you gift Belander a token.",
     "text": "The gift sets a tone for the pilgrimage and becomes a story that follows you.",
     "choices": [
@@ -80,7 +80,7 @@
     "scene": "act0-04_workshop",
     "act": 0,
     "kind": "narration",
-    "image": "assets/panels/workshop_monologue.svg",
+    "image": "assets/panels/workshop1.png",
     "title": "Workshop Monologue",
     "text": "Your tools hum in their rack. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. It\u2019s time to decide what kind of craft you bring to the road.",
     "text_variants": {
@@ -92,7 +92,7 @@
     "scene": "act0-05_class_select",
     "act": 0,
     "kind": "class_select",
-    "image": "assets/panels/class_logos.svg",
+    "image": "assets/panels/classes.png",
     "prompt": "Choose your class specialization.",
     "note": "Each class nudges stats differently throughout Act 1 and Act 2."
   },
@@ -101,7 +101,7 @@
     "scene": "act0-06_mom_doorway",
     "act": 0,
     "kind": "narration",
-    "image": "assets/panels/mom_doorway.svg",
+    "image": "assets/panels/mom.png",
     "title": "Doorway Blessing",
     "text": "At the doorway, your mother presses a hand to your cheek and says the old words: return with everyone you love. The chest waits outside like a sleeping animal."
   },
@@ -110,7 +110,7 @@
     "scene": "act1-01_departure",
     "act": 1,
     "kind": "narration",
-    "image": "assets/panels/cover.svg",
+    "image": "assets/panels/cloud-workshop.png",
     "title": "Act 1 \u2014 Departure",
     "text": "You leave the neon district before dawn. The road is quiet, and the pilgrims are louder than they think."
   },
@@ -183,7 +183,7 @@
     "scene": "act1-03_waystation",
     "act": 1,
     "kind": "choice",
-    "image": "assets/panels/pub_orb_game.svg",
+    "image": "assets/panels/shaman.png",
     "prompt": "Waystation traders offer help\u2014for a price.",
     "text": "A caravan crew offers supplies and gossip if you share the chest\u2019s story.",
     "emphasis": "negotiation",
