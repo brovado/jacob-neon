@@ -1,53 +1,66 @@
 [
   {
     "id": "p001",
-    "scene": "intro-01_neon_pizza",
+    "scene": "intro-01_cover",
     "kind": "narration",
-    "image": "assets/panels/placeholder_neon.svg",
-    "title": "Neon Night",
-    "text": "The shimmer of neon lights strikes puddles of rainwater. I keep my head down on busy streets. Tonight is game night for the city\u2026 but for me, it\u2019s the moment my art comes alive."
+    "image": "assets/panels/cover.svg",
+    "title": "Cover \u2014 Neon Pilgrimage",
+    "text": "The neon district flickers as the pilgrimage gathers. You carry the league\u2019s blessing and the weight of a chest that refuses to open. Tonight is the last quiet before the road."
   },
   {
     "id": "p002",
-    "scene": "intro-01_neon_pizza",
+    "scene": "intro-02_pub_orb",
     "kind": "dialogue",
-    "image": "assets/panels/placeholder_pizza.svg",
+    "image": "assets/panels/pub_orb_game.svg",
     "speaker": "Belander",
-    "text": "Good evening, Jacob."
+    "text": "You bought the table; I brought the orb. Win this round and you can say you beat a league veteran."
   },
   {
     "id": "p003",
-    "scene": "intro-01_neon_pizza",
+    "scene": "intro-03_gift",
     "kind": "choice",
-    "image": "assets/panels/placeholder_choice.svg",
-    "prompt": "You give Belander a parting gift\u2026",
+    "image": "assets/panels/gift_items.svg",
+    "prompt": "Before you leave, you gift Belander a token.",
+    "text": "The gift sets a tone for the pilgrimage and becomes a story that follows you.",
     "choices": [
       {
-        "label": "(Dagger) Your mate\u2019s favorite player\u2019s weapon",
+        "label": "A sharpened dagger for fast hands",
+        "desc": "A fighter\u2019s blessing; the night warms.",
         "effects": {
           "gift": "dagger",
           "stats": {
             "morale": 2
+          },
+          "flags": {
+            "gift_blade": true
           }
         }
       },
       {
-        "label": "(Mace) Signed by a legendary league member",
+        "label": "A signed mace from a league legend",
+        "desc": "Inspires awe but draws whispers.",
         "effects": {
           "gift": "mace",
           "stats": {
             "morale": 1,
             "suspicion": 1
+          },
+          "flags": {
+            "gift_mace": true
           }
         }
       },
       {
-        "label": "(Tower Shield) 3-dragon-breath barrage meme",
+        "label": "A tower shield painted with a meme",
+        "desc": "He laughs, but supplies thin.",
         "effects": {
           "gift": "shield",
           "stats": {
             "morale": 1,
             "supplies": -2
+          },
+          "flags": {
+            "gift_shield": true
           }
         }
       }
@@ -55,52 +68,65 @@
   },
   {
     "id": "p004",
-    "scene": "intro-02_departure_eve",
-    "kind": "class_select",
-    "image": "assets/panels/placeholder_workshop.svg",
-    "prompt": "Night before departure. Choose your specialization tool\u2026"
+    "scene": "intro-04_workshop",
+    "kind": "narration",
+    "image": "assets/panels/workshop_monologue.svg",
+    "title": "Workshop Monologue",
+    "text": "Your tools hum in their rack. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. It\u2019s time to decide what kind of craft you bring to the road."
   },
   {
     "id": "p005",
-    "scene": "road-01_caravan",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_road.svg",
-    "title": "The Road Begins",
-    "text": "The Super Naturals travel with us. Pilgrims too. The offering chest rides like a silent judge."
+    "scene": "intro-05_class_select",
+    "kind": "class_select",
+    "image": "assets/panels/class_logos.svg",
+    "prompt": "Choose your class specialization.",
+    "note": "Each class nudges stats differently throughout Act 1 and Act 2."
   },
   {
     "id": "p006",
-    "scene": "road-02_harpies",
+    "scene": "road-01_travel_danger",
     "kind": "choice",
-    "image": "assets/panels/placeholder_harpies.svg",
-    "prompt": "Harpies descend. Your first real problem on the road\u2026",
+    "image": "assets/panels/cover.svg",
+    "prompt": "Road danger: stormglass ravine.",
+    "text": "The path glows with stormglass shards. The pilgrims hesitate, and the chest feels heavier.",
     "choices": [
       {
-        "label": "Hold formation and protect the cart",
-        "effects": {
-          "stats": {
-            "wounds": 1,
-            "morale": 1
-          }
-        }
-      },
-      {
-        "label": "Scatter into cover; regroup after",
+        "label": "Bridge the gap and push through",
+        "desc": "Fast, loud, and risky.",
         "effects": {
           "stats": {
             "supplies": -3,
-            "wounds": 0,
-            "morale": -1
+            "morale": 1,
+            "wounds": 1
+          },
+          "flags": {
+            "stormglass_bridge": true
           }
         }
       },
       {
-        "label": "Bait them away from the caravan (risky)",
+        "label": "Scout a quiet detour",
+        "desc": "Safer, but time drains supplies.",
         "effects": {
           "stats": {
-            "wounds": 2,
-            "morale": 2,
-            "suspicion": 1
+            "supplies": -4,
+            "suspicion": -1
+          },
+          "flags": {
+            "stormglass_detour": true
+          }
+        }
+      },
+      {
+        "label": "Camp and wait for the wind to settle",
+        "desc": "Patience keeps wounds low.",
+        "effects": {
+          "stats": {
+            "morale": -1,
+            "wounds": 0
+          },
+          "flags": {
+            "stormglass_wait": true
           }
         }
       }
@@ -110,34 +136,21 @@
     "id": "p007",
     "scene": "camp-01",
     "kind": "camp",
-    "image": "assets/panels/placeholder_camp.svg",
-    "prompt": "Camp night. Spend actions to bond. (Your stats and class can tilt outcomes.)"
+    "image": "assets/panels/mom_doorway.svg",
+    "prompt": "Camp night: spend actions to build bonds.",
+    "note": "Each talk increases a bond and steadies morale."
   },
   {
     "id": "p008",
-    "scene": "giant-01_arrival",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_mountains.svg",
-    "title": "Giantik Mountains",
-    "text": "The mountains don\u2019t rise. They loom\u2014 like someone paused a god mid-sentence."
-  },
-  {
-    "id": "p009",
-    "scene": "interlude-01_city",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_choice.svg",
-    "title": "Interlude \u2014 The City of Giants",
-    "text": "While others handle their pilgrim business, you explore. The league\u2019s shadow feels\u2026 closer."
-  },
-  {
-    "id": "p010",
     "scene": "act2-01_hire_guides",
     "kind": "choice",
-    "image": "assets/panels/placeholder_choice.svg",
-    "prompt": "Act 2 begins. You hire guides for the return journey. Your approach sets the tone.",
+    "image": "assets/panels/workshop_monologue.svg",
+    "prompt": "Act 2 begins. Hire guides for the return journey.",
+    "text": "The league\u2019s shadow stretches longer. The right guides can buy you a chance.",
     "choices": [
       {
-        "label": "Pay premium for professionalism (costly, safer)",
+        "label": "Pay premium for professionals",
+        "desc": "Costs supplies, boosts morale.",
         "effects": {
           "stats": {
             "supplies": -8,
@@ -149,11 +162,15 @@
               "guide_2",
               "guide_3"
             ]
+          },
+          "flags": {
+            "guides_hired": true
           }
         }
       },
       {
-        "label": "Negotiate hard (cheaper, tension)",
+        "label": "Negotiate hard",
+        "desc": "Cheaper, but the tension rises.",
         "effects": {
           "stats": {
             "supplies": -4,
@@ -166,11 +183,15 @@
               "guide_2",
               "guide_3"
             ]
+          },
+          "flags": {
+            "guides_hired": true
           }
         }
       },
       {
-        "label": "Call in a favor (info broker style)",
+        "label": "Call in a favor",
+        "desc": "Spend reputation; pay in suspicion.",
         "effects": {
           "stats": {
             "supplies": -2,
@@ -182,20 +203,25 @@
               "guide_2",
               "guide_3"
             ]
+          },
+          "flags": {
+            "guides_hired": true
           }
         }
       }
     ]
   },
   {
-    "id": "p011",
+    "id": "p009",
     "scene": "act2-02_holdout",
     "kind": "choice",
-    "image": "assets/panels/placeholder_choice.svg",
-    "prompt": "A league hunter presses you. You must hold in a ruin until dawn.",
+    "image": "assets/panels/pub_orb_game.svg",
+    "prompt": "Holdout in the ruin.",
+    "text": "A league hunter presses you. You must hold in a ruin until dawn.",
     "choices": [
       {
-        "label": "Fortify the ruin and wait",
+        "label": "Fortify and wait",
+        "desc": "Defensive stance; minor supply loss.",
         "effects": {
           "stats": {
             "supplies": -3,
@@ -205,6 +231,7 @@
       },
       {
         "label": "Slip away under darkness",
+        "desc": "Lower suspicion, but morale dips.",
         "effects": {
           "stats": {
             "morale": -1,
@@ -213,7 +240,8 @@
         }
       },
       {
-        "label": "Confront and scare them off (bluff)",
+        "label": "Confront and bluff",
+        "desc": "Risk wounds for a bold win.",
         "effects": {
           "stats": {
             "suspicion": 2,
@@ -225,25 +253,38 @@
     ]
   },
   {
-    "id": "p012",
-    "scene": "act2-03_the_choice",
+    "id": "p010",
+    "scene": "act2-03_death_choice",
     "kind": "death_choice",
-    "image": "assets/panels/placeholder_choice.svg",
-    "prompt": "Ambush. Someone is going to die unless you sacrifice something. Choose who you pull back first\u2026"
+    "image": "assets/panels/cover.svg",
+    "prompt": "Ambush. Someone will die unless you pay a cost.",
+    "text": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all.",
+    "death": {
+      "guides": [
+        "guide_1",
+        "guide_2",
+        "guide_3"
+      ],
+      "minSupplies": 10,
+      "minMorale": 5,
+      "costSupplies": 10,
+      "moraleLoss": 3
+    }
   },
   {
-    "id": "p013",
+    "id": "p011",
     "scene": "camp-02",
     "kind": "camp",
-    "image": "assets/panels/placeholder_camp.svg",
-    "prompt": "Camp night. The survivor(s) carry it differently."
+    "image": "assets/panels/mom_doorway.svg",
+    "prompt": "Camp night: the survivor(s) carry it differently.",
+    "note": "Spend your remaining actions to keep the party together."
   },
   {
-    "id": "p014",
+    "id": "p012",
     "scene": "end-01_homecoming",
     "kind": "ending",
-    "image": "assets/panels/placeholder_homecoming.svg",
+    "image": "assets/panels/cover.svg",
     "title": "Homecoming",
-    "text": "The forge is home. But you\u2019re not the same metal you were when you left."
+    "text": "The forge feels smaller. The road left marks on everyone who made it back. The chest is still sealed \u2014 but now you know what it will cost to open it."
   }
 ]

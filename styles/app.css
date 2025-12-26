@@ -33,8 +33,13 @@ header{ display:flex; gap:12px; align-items:center; justify-content:space-betwee
 .choice-list{ display:grid; gap:10px; margin-top:10px; }
 .choice{ text-align:left; border-radius:14px; padding:12px; border:1px solid var(--line); background: rgba(15,23,42,.55); cursor:pointer; }
 .choice:hover{ border-color: rgba(185,255,222,.55); transform: translateY(-1px); }
+.choice .choice-desc{ margin-top:6px; color: var(--muted); font-size:12px; }
 .kv{ display:grid; grid-template-columns: 140px 1fr; gap:8px 10px; font-size:13px; } .kv .k{ color: var(--muted); }
 .hr{ height:1px; background: var(--line); margin:12px 0; } .small{ font-size:12px; color: var(--muted); }
 .pill{ display:inline-block; border:1px solid var(--line); background: rgba(15,23,42,.45); padding:3px 8px; border-radius:999px; margin:2px 4px 0 0; color: var(--muted); }
+.pill-list{ display:flex; flex-wrap:wrap; gap:6px; }
+.bond-list{ display:grid; gap:6px; font-size:13px; color: var(--muted); }
+.bond-list b{ color: var(--text); }
+.section-title{ font-size:12px; text-transform:uppercase; letter-spacing:.08em; color: var(--muted); margin-bottom:6px; }
 .toast{ position:fixed; left:50%; bottom:18px; transform: translateX(-50%); background: rgba(15,23,42,.9); border:1px solid var(--line); border-radius:999px; padding:10px 14px; box-shadow: var(--shadow); display:none; }
 .toast.show{ display:block; }
