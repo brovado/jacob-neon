@@ -35,6 +35,39 @@
         "unlock": 6,
         "notes": "Hints at Giantkin politics and 'string-pullers'."
       }
+    ],
+    "nodes": [
+      {
+        "key": "apex_intro",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Apex spins a coin and asks how you keep your hands steady before a fight."
+      },
+      {
+        "key": "apex_scars",
+        "tierMin": 2,
+        "actMin": 1,
+        "kind": "Bond",
+        "text": "He rolls back a sleeve, showing old league scars, and asks what you would trade for victory."
+      },
+      {
+        "key": "apex_contract",
+        "tierMin": 4,
+        "actMin": 2,
+        "kind": "Bond",
+        "text": "He admits the league made him sign an oath he regrets\u2014and hints at who holds the pen."
+      },
+      {
+        "key": "blessing_echo",
+        "tierMin": 1,
+        "actMin": 1,
+        "requiresFlags": [
+          "blessing_received"
+        ],
+        "kind": "Blessing Echo",
+        "text": "He repeats the shaman\u2019s blessing with surprising care."
+      }
     ]
   },
   {
@@ -72,6 +105,39 @@
         "title": "A Secret He Won\u2019t Write Down",
         "unlock": 6,
         "notes": "Knows something about the chest."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "dedor_intro",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Dedor asks what you would burn to keep the pilgrims safe."
+      },
+      {
+        "key": "dedor_debt",
+        "tierMin": 2,
+        "actMin": 1,
+        "kind": "Bond",
+        "text": "He sketches a map of debts in the dust, naming the league as the biggest creditor."
+      },
+      {
+        "key": "dedor_secret",
+        "tierMin": 4,
+        "actMin": 2,
+        "kind": "Bond",
+        "text": "He confesses he once worked for the league\u2014just long enough to learn their blind spot."
+      },
+      {
+        "key": "blessing_echo",
+        "tierMin": 1,
+        "actMin": 1,
+        "requiresFlags": [
+          "blessing_received"
+        ],
+        "kind": "Blessing Echo",
+        "text": "He quietly recites the blessing like a vow."
       }
     ]
   },
@@ -111,6 +177,29 @@
         "unlock": 6,
         "notes": "You learn what he\u2019s trying to protect by staying in the party."
       }
+    ],
+    "nodes": [
+      {
+        "key": "theramous_intro",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Theramous asks about your craft and promises to keep the ledgers straight."
+      },
+      {
+        "key": "theramous_math",
+        "tierMin": 2,
+        "actMin": 1,
+        "kind": "Bond",
+        "text": "He breaks down the league\u2019s logistics and how to slip between them."
+      },
+      {
+        "key": "theramous_promise",
+        "tierMin": 4,
+        "actMin": 2,
+        "kind": "Bond",
+        "text": "He shows you a promise written in invisible ink\u2014and trusts you with it."
+      }
     ]
   },
   {
@@ -148,6 +237,29 @@
         "title": "Hidden Compartment",
         "unlock": 6,
         "notes": "He saw something inside the chest when no one was watching."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "widjet_intro",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Widjet produces a hinge made of three metals and asks which one you\u2019d keep."
+      },
+      {
+        "key": "widjet_giants",
+        "tierMin": 2,
+        "actMin": 1,
+        "kind": "Bond",
+        "text": "He explains a giant sports ritual with unsettling accuracy."
+      },
+      {
+        "key": "widjet_compartment",
+        "tierMin": 4,
+        "actMin": 2,
+        "kind": "Bond",
+        "text": "He admits he saw something inside the chest when no one was watching."
       }
     ]
   },
@@ -187,6 +299,29 @@
         "unlock": 6,
         "notes": "He tests whether you\u2019re league-clean or league-tainted."
       }
+    ],
+    "nodes": [
+      {
+        "key": "jeffery_intro",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Jeffery says the chest doesn\u2019t open with force; it opens with permission."
+      },
+      {
+        "key": "jeffery_lock",
+        "tierMin": 2,
+        "actMin": 1,
+        "kind": "Bond",
+        "text": "He hints the true lock is a vow, not a key."
+      },
+      {
+        "key": "jeffery_test",
+        "tierMin": 4,
+        "actMin": 2,
+        "kind": "Bond",
+        "text": "He asks who you\u2019d let touch the chest if you never returned."
+      }
     ]
   },
   {
@@ -201,6 +336,15 @@
         "title": "Old Hymns",
         "unlock": 1,
         "notes": "She teaches you a phrase that means 'safe passage'."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "iria_hymn",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Iria teaches a quiet phrase meaning safe passage."
       }
     ]
   },
@@ -217,6 +361,15 @@
         "unlock": 1,
         "notes": "He shows you how to shift weight so the cart doesn\u2019t betray you."
       }
+    ],
+    "nodes": [
+      {
+        "key": "rook_balance",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Rook shows how to shift weight so the cart never squeals."
+      }
     ]
   },
   {
@@ -231,6 +384,15 @@
         "title": "Eyes on the League",
         "unlock": 1,
         "notes": "She points out the signs of being followed."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "sable_watch",
+        "tierMin": 0,
+        "actMin": 0,
+        "kind": "Bond",
+        "text": "Sable points out the signs of being followed."
       }
     ]
   },
@@ -247,6 +409,15 @@
         "unlock": 1,
         "notes": "He explains what your coin actually buys."
       }
+    ],
+    "nodes": [
+      {
+        "key": "brann_terms",
+        "tierMin": 0,
+        "actMin": 2,
+        "kind": "Guide Note",
+        "text": "Brann explains what your coin buys\u2014and what it doesn\u2019t."
+      }
     ]
   },
   {
@@ -261,6 +432,15 @@
         "title": "Tracks in Snow",
         "unlock": 1,
         "notes": "She teaches you to read wind like handwriting."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "mira_tracks",
+        "tierMin": 0,
+        "actMin": 2,
+        "kind": "Guide Note",
+        "text": "Mira teaches you to read wind like handwriting."
       }
     ]
   },
@@ -277,6 +457,15 @@
         "unlock": 1,
         "notes": "He warns you about 'league hunters'."
       }
+    ],
+    "nodes": [
+      {
+        "key": "kest_warning",
+        "tierMin": 0,
+        "actMin": 2,
+        "kind": "Guide Note",
+        "text": "Kest warns you the league\u2019s arrows don\u2019t miss twice."
+      }
     ]
   },
   {
@@ -291,6 +480,31 @@
         "title": "Lessons Paid in Sweat",
         "unlock": 1,
         "notes": "He offers to teach\u2026 if you earn it."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "master_intro",
+        "tierMin": 0,
+        "actMin": 2,
+        "requiresFlags": [
+          "master_joined"
+        ],
+        "kind": "Master Lesson",
+        "text": "Master Orlan critiques your hammer stance and offers a correction."
+      },
+      {
+        "key": "master_lesson",
+        "tierMin": 2,
+        "actMin": 2,
+        "requiresFlags": [
+          "master_joined"
+        ],
+        "kind": "Master Lesson",
+        "text": "He teaches a repair trick that saves supplies in a pinch.",
+        "text_variants": {
+          "smith": "He nods at your build, then shares a forge trick only smiths should know."
+        }
       }
     ]
   },
@@ -307,6 +521,18 @@
         "unlock": 1,
         "notes": "Asks you what giants are *really* like."
       }
+    ],
+    "nodes": [
+      {
+        "key": "pip_intro",
+        "tierMin": 0,
+        "actMin": 2,
+        "requiresFlags": [
+          "apprentice_joined"
+        ],
+        "kind": "Apprentice",
+        "text": "Pip peppers you with questions about giantland and the chest."
+      }
     ]
   },
   {
@@ -321,6 +547,18 @@
         "title": "Shared Fire",
         "unlock": 1,
         "notes": "A small act of care changes the whole mood of camp."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "lysa_intro",
+        "tierMin": 0,
+        "actMin": 2,
+        "requiresFlags": [
+          "refugees_joined"
+        ],
+        "kind": "Refugee",
+        "text": "Lysa thanks you for taking her children in and offers to share rations."
       }
     ]
   },
@@ -337,6 +575,18 @@
         "unlock": 1,
         "notes": "She trades local gossip for a bedtime tale."
       }
+    ],
+    "nodes": [
+      {
+        "key": "nell_story",
+        "tierMin": 0,
+        "actMin": 2,
+        "requiresFlags": [
+          "refugees_joined"
+        ],
+        "kind": "Child",
+        "text": "Nell trades gossip for a bedtime story."
+      }
     ]
   },
   {
@@ -351,6 +601,18 @@
         "title": "Lucky Charm",
         "unlock": 1,
         "notes": "He gives you a trinket 'for the bad nights'."
+      }
+    ],
+    "nodes": [
+      {
+        "key": "hob_charm",
+        "tierMin": 0,
+        "actMin": 2,
+        "requiresFlags": [
+          "refugees_joined"
+        ],
+        "kind": "Child",
+        "text": "Hob gives you a lucky trinket for the rough nights."
       }
     ]
   }
