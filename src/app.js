@@ -59,6 +59,7 @@ function applyEffects(state, effects){
   if(!effects) return;
 
   if(effects.gift) state.gift = effects.gift;
+  if(effects.classKey) state.classKey = effects.classKey;
 
   if(effects.flags){
     for(const [k,v] of Object.entries(effects.flags)){
@@ -66,8 +67,9 @@ function applyEffects(state, effects){
     }
   }
 
-  if(effects.stats){
-    applyDelta(state.stats, effects.stats);
+  const statDelta = effects.stats || effects.statsDelta || effects.stats_delta;
+  if(statDelta){
+    applyDelta(state.stats, statDelta);
     state.stats.supplies = clamp(state.stats.supplies, 0, 99);
     state.stats.morale = clamp(state.stats.morale, -20, 20);
     state.stats.suspicion = clamp(state.stats.suspicion, 0, 99);
@@ -85,8 +87,9 @@ function applyEffects(state, effects){
     }
   }
 
-  if(effects.bond){
-    for(const [npcKey,delta] of Object.entries(effects.bond)){
+  const bondDelta = effects.bond || effects.bonds;
+  if(bondDelta){
+    for(const [npcKey,delta] of Object.entries(bondDelta)){
       state.bonds[npcKey] = (state.bonds[npcKey] ?? 0) + Number(delta);
     }
   }
@@ -145,16 +148,20 @@ function applyClassPassive(state, panel){
 
 // Death system hook: always ensures one guide dies unless you pay a cost.
 // You can later expand to more nuanced logic or multiple deaths.
-function resolveDeathEvent(state, npcs){
-  const guides = ["guide_1","guide_2","guide_3"].filter(k => state.party.includes(k) && !state.dead.includes(k));
+function resolveDeathEvent(state, panel){
+  const guideKeys = panel?.death?.guides || ["guide_1","guide_2","guide_3"];
+  const guides = guideKeys.filter(k => state.party.includes(k) && !state.dead.includes(k));
   if(guides.length === 0){
     toast("No guides present for the death event.");
     return null;
   }
 
-  // If you're prepared (supplies high) you can save everyone by paying supplies.
-  if(state.stats.supplies >= 10 && state.stats.morale >= 5){
-    return { canSaveAll: true, costSupplies: 10, options: guides };
+  const minSupplies = panel?.death?.minSupplies ?? 10;
+  const minMorale = panel?.death?.minMorale ?? 5;
+  const costSupplies = panel?.death?.costSupplies ?? 10;
+
+  if(state.stats.supplies >= minSupplies && state.stats.morale >= minMorale){
+    return { canSaveAll: true, costSupplies, options: guides };
   }
 
   // Otherwise: someone will die; survival odds depend on wounds/suspicion.
@@ -164,9 +171,17 @@ function resolveDeathEvent(state, npcs){
 function renderStateSidebar(state, npcs){
   $("#stGift").textContent = state.gift ?? "—";
   $("#stClass").textContent = state.classKey ?? "—";
-  $("#stParty").textContent = state.party.map(k => npcByKey(npcs,k)?.name ?? k).join(", ");
   $("#stActions").textContent = String(state.nightActionsLeft);
-  $("#stBonds").textContent = Object.entries(state.bonds).map(([k,v])=>`${npcByKey(npcs,k)?.name ?? k}:${v}`).join(" • ") || "—";
+
+  const livingParty = state.party.filter(k => !state.dead.includes(k));
+  $("#stParty").innerHTML = livingParty.length
+    ? livingParty.map(k => `<span class="pill">${escapeHtml(npcByKey(npcs,k)?.name ?? k)}</span>`).join("")
+    : "<span class=\"small\">—</span>";
+
+  const bondEntries = Object.entries(state.bonds).filter(([,v]) => Number(v) > 0);
+  $("#stBonds").innerHTML = bondEntries.length
+    ? bondEntries.map(([k,v]) => `<div><b>${escapeHtml(npcByKey(npcs,k)?.name ?? k)}</b> • ${escapeHtml(String(v))}</div>`).join("")
+    : "<span class=\"small\">—</span>";
 
   $("#stSup").textContent = String(state.stats.supplies);
   $("#stMor").textContent = String(state.stats.morale);
@@ -198,6 +213,7 @@ function renderPanel(panel, ctx){
 
   // Gate: class must be selected
   if(panel.kind === "class_select"){
+    const note = panel.note ? `<div class="small" style="margin-top:10px;">${escapeHtml(panel.note)}</div>` : "";
     container.innerHTML = `
       <div class="panel-title">${escapeHtml(panel.prompt ?? "Choose your class")}</div>
       <div class="choice-list">
@@ -205,10 +221,11 @@ function renderPanel(panel, ctx){
           <button class="choice" data-class="${escapeHtml(c.key)}">
             <b>${escapeHtml(c.name)}</b>
             <div class="small">${escapeHtml(c.tagline)}</div>
+            ${c.perks?.length ? `<div class="choice-desc">${escapeHtml(c.perks.map(p => p.label).join(" • "))}</div>` : ""}
           </button>
         `).join("")}
       </div>
-      <div class="small" style="margin-top:10px;">Class perks influence stats & outcomes.</div>
+      ${note || `<div class="small" style="margin-top:10px;">Class perks influence stats & outcomes.</div>`}
     `;
     container.querySelectorAll("[data-class]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
@@ -241,12 +258,20 @@ function renderPanel(panel, ctx){
 
   if(panel.kind === "choice"){
     const choices = panel.choices || [];
+    const intro = panel.text ? `<div class="linebox">${escapeHtml(panel.text)}</div>` : "";
+    const note = panel.note ? `<div class="small" style="margin-top:10px;">${escapeHtml(panel.note)}</div>` : "";
     container.innerHTML = `
       <div class="panel-title">${escapeHtml(panel.prompt ?? "Choose")}</div>
+      ${intro}
       <div class="choice-list">
-        ${choices.map((c,i)=>`<button class="choice" data-choice="${i}">${escapeHtml(c.label)}</button>`).join("")}
+        ${choices.map((c,i)=>`
+          <button class="choice" data-choice="${i}">
+            ${escapeHtml(c.label)}
+            ${c.desc ? `<div class="choice-desc">${escapeHtml(c.desc)}</div>` : ""}
+          </button>
+        `).join("")}
       </div>
-      <div class="small" style="margin-top:10px;">Your stats carry forward.</div>
+      ${note || `<div class="small" style="margin-top:10px;">Your stats carry forward.</div>`}
     `;
     container.querySelectorAll("[data-choice]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
@@ -288,9 +313,11 @@ function renderPanel(panel, ctx){
       `;
     };
 
+    const note = panel.note ? `<div class="small">${escapeHtml(panel.note)}</div>` : "";
     container.innerHTML = `
       <div class="panel-title">${escapeHtml(panel.prompt ?? "Camp")}</div>
-      <div class="small">Actions tonight: <b>${state.nightActionsLeft}</b>. Morale is affected by camp choices.</div>
+      <div class="small">Actions tonight: <b>${state.nightActionsLeft}</b>.</div>
+      ${note}
       ${available.map(npcCard).join("")}
       <div class="hr"></div>
       <div class="small">Press <b>Next</b> when done.</div>
@@ -315,7 +342,7 @@ function renderPanel(panel, ctx){
   }
 
   if(panel.kind === "death_choice"){
-    const ev = resolveDeathEvent(state, npcs);
+    const ev = resolveDeathEvent(state, panel);
     if(!ev){
       container.innerHTML = `<div class="linebox">No valid death event options.</div>`;
       return;
@@ -330,9 +357,11 @@ function renderPanel(panel, ctx){
       ? `<button class="choice" data-saveall="1">Spend ${ev.costSupplies} Supplies to save everyone</button>`
       : "";
 
+    const intro = panel.text ? `<div class="linebox">${escapeHtml(panel.text)}</div>` : "";
     container.innerHTML = `
       <div class="panel-title">${escapeHtml(panel.prompt ?? "Death Choice")}</div>
-      <div class="linebox">
+      ${intro}
+      <div class="linebox" style="margin-top:10px;">
         <div class="small">This event is designed to make choices matter. If you’re well-prepared, you can save all.</div>
         <div class="small">Current: Supplies <b>${state.stats.supplies}</b>, Morale <b>${state.stats.morale}</b>, Wounds <b>${state.stats.wounds}</b>, Suspicion <b>${state.stats.suspicion}</b>.</div>
       </div>
@@ -388,7 +417,8 @@ function renderPanel(panel, ctx){
         }
 
         // death impacts morale
-        state.stats.morale = clamp(state.stats.morale - 3, -20, 20);
+        const moraleLoss = panel?.death?.moraleLoss ?? 3;
+        state.stats.morale = clamp(state.stats.morale - moraleLoss, -20, 20);
         saveState(state);
         next(ctx);
       });

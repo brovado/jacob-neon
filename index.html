@@ -11,7 +11,7 @@
     <header>
       <div class="brand">
         <h1>Jacob: Neon Pilgrimage</h1>
-        <div class="sub">v2 • decisions now change stats • class perks matter • someone can die in Act 2</div>
+        <div class="sub">v2 • stats + death choice • JSON-driven panels</div>
       </div>
       <div class="topbar">
         <span id="badgeClass" class="badge">Class: —</span>
@@ -35,16 +35,14 @@
 
       <aside class="card">
         <div class="hd">
-          <h2>Run State</h2>
+          <h2>Run Stats</h2>
           <div class="small" id="saveHint"></div>
         </div>
         <div class="bd">
           <div class="kv">
-            <div class="k">Gift</div><div id="stGift">—</div>
             <div class="k">Class</div><div id="stClass">—</div>
-            <div class="k">Party</div><div id="stParty">—</div>
+            <div class="k">Gift</div><div id="stGift">—</div>
             <div class="k">Night Actions</div><div id="stActions">—</div>
-            <div class="k">Bonds</div><div id="stBonds">—</div>
           </div>
           <div class="hr"></div>
           <div class="kv">
@@ -53,6 +51,12 @@
             <div class="k">Suspicion</div><div id="stSus">—</div>
             <div class="k">Wounds</div><div id="stWou">—</div>
           </div>
+          <div class="hr"></div>
+          <div class="section-title">Party</div>
+          <div id="stParty" class="pill-list"></div>
+          <div class="hr"></div>
+          <div class="section-title">Bonds</div>
+          <div id="stBonds" class="bond-list"></div>
           <div class="hr"></div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <button id="btnExport" class="btn">Export Save</button>
