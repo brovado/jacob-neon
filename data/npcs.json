@@ -1,0 +1,199 @@
+[
+  {
+    "key": "apex",
+    "name": "Apex",
+    "role": "Super Naturals \u2014 frontline legend",
+    "blurb": "Charismatic, dangerous, loyal. Eats like a king, fights like a storm.",
+    "affinity": {
+      "smith": 4,
+      "leatherworker": 3,
+      "relicator": 2,
+      "alchemist": 3,
+      "architect": 2,
+      "historian": 2,
+      "cartographer": 2,
+      "quartermaster": 3,
+      "infobroker": 2,
+      "bard": 4
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Road Banter",
+        "unlock": 1,
+        "notes": "Food, jokes, minor rivalry."
+      },
+      {
+        "tier": 2,
+        "title": "Old Scars",
+        "unlock": 3,
+        "notes": "Why he joined the league; fear of being replaced."
+      },
+      {
+        "tier": 3,
+        "title": "The Unspoken Contract",
+        "unlock": 6,
+        "notes": "Hints at Giantkin politics and 'string-pullers'."
+      }
+    ]
+  },
+  {
+    "key": "dedor",
+    "name": "Dedor",
+    "role": "Super Naturals \u2014 strategist / moral compass",
+    "blurb": "Measured voice, sharp eyes. Notices what everyone else avoids.",
+    "affinity": {
+      "smith": 3,
+      "leatherworker": 3,
+      "relicator": 3,
+      "alchemist": 2,
+      "architect": 4,
+      "historian": 4,
+      "cartographer": 3,
+      "quartermaster": 3,
+      "infobroker": 2,
+      "bard": 2
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Campfire Ethics",
+        "unlock": 1,
+        "notes": "He asks what you believe in."
+      },
+      {
+        "tier": 2,
+        "title": "The Map of Consequence",
+        "unlock": 3,
+        "notes": "Reframes choices as debts."
+      },
+      {
+        "tier": 3,
+        "title": "A Secret He Won\u2019t Write Down",
+        "unlock": 6,
+        "notes": "Knows something about the chest."
+      }
+    ]
+  },
+  {
+    "key": "jeffery",
+    "name": "Jeffery",
+    "role": "Pilgrim \u2014 the only one who can open the chest",
+    "blurb": "No league ties. Quiet, competent. The key is not metal.",
+    "affinity": {
+      "smith": 2,
+      "leatherworker": 2,
+      "relicator": 4,
+      "alchemist": 3,
+      "architect": 3,
+      "historian": 3,
+      "cartographer": 2,
+      "quartermaster": 2,
+      "infobroker": 3,
+      "bard": 1
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Hands of Ceremony",
+        "unlock": 1,
+        "notes": "Hints at 'opening' as a rite."
+      },
+      {
+        "tier": 2,
+        "title": "The Chest\u2019s True Lock",
+        "unlock": 3,
+        "notes": "A vow. A name. A sacrifice? (kept non-graphic)."
+      },
+      {
+        "tier": 3,
+        "title": "Who Sent You?",
+        "unlock": 6,
+        "notes": "He tests whether you\u2019re league-clean or league-tainted."
+      }
+    ]
+  },
+  {
+    "key": "felix",
+    "name": "Felix",
+    "role": "Traveler \u2014 hired muscle / scout",
+    "blurb": "Laughs first, checks exits second. Likes clean plans and clean knives.",
+    "affinity": {
+      "smith": 3,
+      "leatherworker": 4,
+      "relicator": 1,
+      "alchemist": 2,
+      "architect": 2,
+      "historian": 1,
+      "cartographer": 4,
+      "quartermaster": 3,
+      "infobroker": 3,
+      "bard": 2
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Scout Talk",
+        "unlock": 1,
+        "notes": "Tracks, weather, and shortcuts."
+      },
+      {
+        "tier": 2,
+        "title": "The Bad Road",
+        "unlock": 3,
+        "notes": "Shares why he avoids certain villages."
+      },
+      {
+        "tier": 3,
+        "title": "The Price of Protection",
+        "unlock": 6,
+        "notes": "A deal he regrets with league reps."
+      }
+    ]
+  },
+  {
+    "key": "widjet",
+    "name": "Widjet",
+    "role": "Traveler \u2014 tinkerer / comic relief",
+    "blurb": "A pocketful of springs and wisdom disguised as nonsense.",
+    "affinity": {
+      "smith": 4,
+      "leatherworker": 2,
+      "relicator": 3,
+      "alchemist": 3,
+      "architect": 3,
+      "historian": 2,
+      "cartographer": 2,
+      "quartermaster": 3,
+      "infobroker": 2,
+      "bard": 3
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Gadget Nights",
+        "unlock": 1,
+        "notes": "Shows you a strange hinge-mechanism."
+      },
+      {
+        "tier": 2,
+        "title": "Laughing at Giants",
+        "unlock": 3,
+        "notes": "Explains giant sports rituals with weird accuracy."
+      },
+      {
+        "tier": 3,
+        "title": "Hidden Compartment",
+        "unlock": 6,
+        "notes": "He saw something inside the chest when no one was watching."
+      }
+    ],
+    "availabilityRules": [
+      {
+        "when": "after_scene",
+        "sceneKey": "road-02_harpies",
+        "note": "Widjet joins after the harpy swarm incident."
+      }
+    ]
+  }
+]

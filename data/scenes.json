@@ -1,0 +1,164 @@
+[
+  {
+    "key": "intro-01_neon_pizza",
+    "title": "Neon Streets, Pizza, and Old Friends",
+    "type": "story",
+    "slotTags": [
+      "intro",
+      "noir",
+      "league"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "intro-02_departure_eve",
+    "title": "Night Before Departure \u2014 The Workshop Choice",
+    "type": "choice",
+    "slotTags": [
+      "class-select",
+      "home",
+      "family"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "road-01_caravan_begins",
+    "title": "Caravan Sets Out",
+    "type": "story",
+    "slotTags": [
+      "travel",
+      "party"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "road-02_harpies",
+    "title": "Harpies in the Wind",
+    "type": "story",
+    "slotTags": [
+      "encounter",
+      "danger"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "road-03_hut_or_fire",
+    "title": "Camp: Fire, Grill, or Tiny Hut",
+    "type": "camp",
+    "slotTags": [
+      "camp",
+      "npc"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "giant-01_arrival",
+    "title": "Giantik Mountains \u2014 Arrival and Ritual Etiquette",
+    "type": "story",
+    "slotTags": [
+      "giants",
+      "culture"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "giant-02_shaman_meet",
+    "title": "The Shaman\u2019s Gaze",
+    "type": "story",
+    "slotTags": [
+      "giants",
+      "mystery"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "giant-03_proving",
+    "title": "Proving Worthiness",
+    "type": "challenge",
+    "slotTags": [
+      "trial",
+      "skill"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "giant-04_blessing",
+    "title": "Blessing of the Shaman",
+    "type": "story",
+    "slotTags": [
+      "blessing",
+      "turning-point"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "giant-05_teleport_split",
+    "title": "The Party Teleports Out \u2014 Not Enough Space",
+    "type": "story",
+    "slotTags": [
+      "separation",
+      "loss"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "solo-01_cloud_forge",
+    "title": "Cloud Forge Apprenticeship",
+    "type": "arc",
+    "slotTags": [
+      "training",
+      "craft"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "solo-02_league_shadow",
+    "title": "The League\u2019s Reach",
+    "type": "arc",
+    "slotTags": [
+      "intrigue",
+      "threat"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "solo-03_return_road",
+    "title": "Return Journey Begins",
+    "type": "story",
+    "slotTags": [
+      "travel",
+      "solo"
+    ],
+    "fixed": true
+  },
+  {
+    "key": "solo-04_village_rehab",
+    "title": "Village Stop \u2014 Healing and New Companions",
+    "type": "story",
+    "slotTags": [
+      "village",
+      "recovery"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "solo-05_final_push",
+    "title": "The Final Push Home",
+    "type": "climax",
+    "slotTags": [
+      "climax",
+      "danger"
+    ],
+    "fixed": false
+  },
+  {
+    "key": "end-01_homecoming",
+    "title": "Homecoming \u2014 The Forge Feels Different",
+    "type": "ending",
+    "slotTags": [
+      "home",
+      "resolution"
+    ],
+    "fixed": true
+  }
+]

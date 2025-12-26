@@ -1,0 +1,139 @@
+[
+  {
+    "id": "p001",
+    "scene": "intro-01_neon_pizza",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_neon.svg",
+    "title": "Neon Night",
+    "text": "The shimmer of neon lights strikes puddles of rainwater. I keep my head down on busy streets. Tonight is game night for the city\u2026 but for me, it\u2019s the moment my art comes alive."
+  },
+  {
+    "id": "p002",
+    "scene": "intro-01_neon_pizza",
+    "kind": "dialogue",
+    "image": "assets/panels/placeholder_pizza.svg",
+    "speaker": "Belander",
+    "text": "Good evening, Jacob."
+  },
+  {
+    "id": "p003",
+    "scene": "intro-01_neon_pizza",
+    "kind": "dialogue",
+    "image": "assets/panels/placeholder_pizza.svg",
+    "speaker": "Belander",
+    "text": "I heard you\u2019re heading with the Super Naturals tomorrow. Giantik Mountains with that horrible excuse for a minor league team? You\u2019d be better off at the forge with family."
+  },
+  {
+    "id": "p004",
+    "scene": "intro-01_neon_pizza",
+    "kind": "choice",
+    "image": "assets/panels/placeholder_choice.svg",
+    "prompt": "You give Belander a parting gift\u2026",
+    "choices": [
+      {
+        "label": "(Dagger) Your mate\u2019s favorite player\u2019s weapon",
+        "effects": {
+          "gift": "dagger"
+        }
+      },
+      {
+        "label": "(Mace) Signed by a legendary league member",
+        "effects": {
+          "gift": "mace"
+        }
+      },
+      {
+        "label": "(Tower Shield) Used in the infamous 3-dragon-breath barrage meme",
+        "effects": {
+          "gift": "shield"
+        }
+      }
+    ]
+  },
+  {
+    "id": "p005",
+    "scene": "intro-02_departure_eve",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_workshop.svg",
+    "title": "Night Before Departure",
+    "text": "I tinker away. It\u2019s unfortunate I haven\u2019t told them I might not return with the party. Not gone forever\u2026 but if Giantland offers a life worth taking, I\u2019ll take it."
+  },
+  {
+    "id": "p006",
+    "scene": "intro-02_departure_eve",
+    "kind": "class_select",
+    "image": "assets/panels/placeholder_choice.svg",
+    "prompt": "Choose your specialization tool\u2026"
+  },
+  {
+    "id": "p007",
+    "scene": "intro-02_departure_eve",
+    "kind": "dialogue",
+    "image": "assets/panels/placeholder_home.svg",
+    "speaker": "Mother",
+    "text": "Dear son, you should get some rest. Everyone sends their concern. Be safe\u2014 and don\u2019t forget the provisions I prepared for you."
+  },
+  {
+    "id": "p008",
+    "scene": "road-01_caravan_begins",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_road.svg",
+    "title": "Caravan Sets Out",
+    "text": "Besides the Super Naturals, there are five of us on this pilgrimage. Relatively safe\u2026 if you ignore the harpies, the hypogriffs, and the time Apex rode a wyvern like it owed him money."
+  },
+  {
+    "id": "p009",
+    "scene": "road-02_harpies",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_harpies.svg",
+    "title": "Harpies in the Wind",
+    "text": "Wings. Screams. Claws. The sky turns into a problem with too many sharp edges."
+  },
+  {
+    "id": "p010",
+    "scene": "road-03_hut_or_fire",
+    "kind": "camp",
+    "image": "assets/panels/placeholder_camp.svg",
+    "prompt": "Camp scene: pick one person to talk to tonight (limited actions)."
+  },
+  {
+    "id": "p011",
+    "scene": "giant-01_arrival",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_mountains.svg",
+    "title": "Giantik Mountains",
+    "text": "The mountains don\u2019t rise. They loom\u2014 like someone paused a god mid-sentence."
+  },
+  {
+    "id": "p012",
+    "scene": "giant-04_blessing",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_shaman.svg",
+    "title": "Blessing",
+    "text": "The shaman\u2019s words are older than the league and heavier than stone. Something in me shifts\u2014 not louder\u2026 lighter."
+  },
+  {
+    "id": "p013",
+    "scene": "giant-05_teleport_split",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_portal.svg",
+    "title": "Not Enough Space",
+    "text": "They teleport out. There isn\u2019t space for all of us. The air snaps closed, and suddenly\u2026 I\u2019m not \u2018with the party\u2019 anymore."
+  },
+  {
+    "id": "p014",
+    "scene": "solo-01_cloud_forge",
+    "kind": "arc",
+    "image": "assets/panels/placeholder_forge.svg",
+    "title": "Cloud Forge",
+    "text": "I find a forge that sings with sky-metal. Everything can be made lighter here\u2014 if your hands can learn the language."
+  },
+  {
+    "id": "p015",
+    "scene": "end-01_homecoming",
+    "kind": "ending",
+    "image": "assets/panels/placeholder_homecoming.svg",
+    "title": "Homecoming",
+    "text": "The forge is home. But I\u2019m not the same metal I was when I left."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "key": "smith",
+    "name": "Smith",
+    "tagline": "You solve problems in metal. Defense, tools, and battlefield pragmatism.",
+    "sceneEmphasis": [
+      "crafting",
+      "defense",
+      "repairs",
+      "forge-lore",
+      "siege-engineering"
+    ]
+  },
+  {
+    "key": "leatherworker",
+    "name": "Leatherworker",
+    "tagline": "You weave strength into hides and straps. Quiet resilience, travel survival.",
+    "sceneEmphasis": [
+      "survival",
+      "fieldcraft",
+      "stealth",
+      "repair",
+      "camp-life"
+    ]
+  },
+  {
+    "key": "relicator",
+    "name": "Relicator",
+    "tagline": "If you\u2019ve seen a wondrous thing, you can echo it. Magic with rules\u2026 and loopholes.",
+    "sceneEmphasis": [
+      "arcana",
+      "artifacts",
+      "mystery",
+      "forbidden-tech",
+      "rituals"
+    ]
+  },
+  {
+    "key": "alchemist",
+    "name": "Alchemist",
+    "tagline": "Concoctions, catalysts, and controlled chaos. Your lab is a suitcase.",
+    "sceneEmphasis": [
+      "potions",
+      "mutations",
+      "medicine",
+      "toxins",
+      "experiments"
+    ]
+  },
+  {
+    "key": "architect",
+    "name": "Architect / Builder",
+    "tagline": "You read space like a spell. Bridges, shelters, fortifications, secrets in stone.",
+    "sceneEmphasis": [
+      "structures",
+      "puzzles",
+      "engineering",
+      "ruins",
+      "construction"
+    ]
+  },
+  {
+    "key": "historian",
+    "name": "Historian / Chronicler",
+    "tagline": "You collect the truth\u2014sometimes against its will. Names, dates, motives.",
+    "sceneEmphasis": [
+      "lore",
+      "investigation",
+      "politics",
+      "revelations",
+      "memory"
+    ]
+  },
+  {
+    "key": "cartographer",
+    "name": "Cartographer",
+    "tagline": "You turn the unknown into lines and legend. The road confesses to you.",
+    "sceneEmphasis": [
+      "exploration",
+      "navigation",
+      "weather",
+      "terrain",
+      "hidden-routes"
+    ]
+  },
+  {
+    "key": "quartermaster",
+    "name": "Quartermaster",
+    "tagline": "Logistics is war by other means. You keep people alive with planning.",
+    "sceneEmphasis": [
+      "supplies",
+      "trade",
+      "resourcefulness",
+      "morale",
+      "negotiation"
+    ]
+  },
+  {
+    "key": "infobroker",
+    "name": "Information Broker",
+    "tagline": "You sniff out the league\u2019s rot. Contacts, debts, secrets, leverage.",
+    "sceneEmphasis": [
+      "intrigue",
+      "espionage",
+      "blackmail",
+      "contacts",
+      "urban-noir"
+    ]
+  },
+  {
+    "key": "bard",
+    "name": "Bard",
+    "tagline": "You move hearts\u2014and crowds. Stories are weapons; songs are locks and keys.",
+    "sceneEmphasis": [
+      "performance",
+      "social",
+      "mythmaking",
+      "inspiration",
+      "trickery"
+    ]
+  }
+]

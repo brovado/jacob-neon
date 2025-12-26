@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Jacob: Neon Pilgrimage</title>
+  <link rel="stylesheet" href="styles/app.css"/>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>Jacob: Neon Pilgrimage</h1>
+        <div class="sub">Interactive story prototype • panels → text → choices → class → camp bonds</div>
+      </div>
+      <div class="topbar">
+        <span id="badgeClass" class="badge">Class: —</span>
+        <span id="badgeScene" class="badge">Scene: —</span>
+        <button id="btnRestart" class="btn">Restart</button>
+        <button id="btnSkip" class="btn primary">Next ▸</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <div class="hd">
+          <h2 id="panelHeader">Panel</h2>
+          <div class="small" id="panelMeta"></div>
+        </div>
+        <div class="bd">
+          <img id="panelImg" class="panel-img" alt="panel art"/>
+          <div id="panelBody"></div>
+        </div>
+      </main>
+
+      <aside class="card">
+        <div class="hd">
+          <h2>Run State</h2>
+          <div class="small" id="saveHint"></div>
+        </div>
+        <div class="bd">
+          <div class="kv">
+            <div class="k">Gift</div><div id="stGift">—</div>
+            <div class="k">Party</div><div id="stParty">—</div>
+            <div class="k">Night Actions</div><div id="stActions">—</div>
+            <div class="k">Bond Levels</div><div id="stBonds">—</div>
+          </div>
+          <div class="hr"></div>
+          <div class="small">Tools</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+            <button id="btnTables" class="btn">View Tables</button>
+            <button id="btnExport" class="btn">Export Save</button>
+            <button id="btnImport" class="btn">Import Save</button>
+          </div>
+          <div class="hr"></div>
+          <div class="small">
+            Tip: Edit <b>data/panels.json</b> and keep adding panels. The engine runs them in order.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <dialog id="dlgTables" class="card" style="max-width:1100px; width:calc(100% - 20px); border:none; padding:0;">
+    <div class="hd">
+      <h2>Class → Scene Emphasis & NPC → Class Affinity</h2>
+      <button id="btnCloseTables" class="btn">Close</button>
+    </div>
+    <div class="bd" id="tablesBody"></div>
+  </dialog>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
