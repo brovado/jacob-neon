@@ -9,6 +9,18 @@
       "repairs",
       "forge-lore",
       "siege-engineering"
+    ],
+    "perks": [
+      {
+        "key": "hardened",
+        "label": "Hardened Build",
+        "desc": "+1 Morale when danger rises; Wounds reduced in travel ambushes."
+      },
+      {
+        "key": "field_repairs",
+        "label": "Field Repairs",
+        "desc": "Choice options sometimes gain a 'repair' solution for better outcomes."
+      }
     ]
   },
   {
@@ -21,6 +33,18 @@
       "stealth",
       "repair",
       "camp-life"
+    ],
+    "perks": [
+      {
+        "key": "quiet_steps",
+        "label": "Quiet Steps",
+        "desc": "Lower Suspicion in stealth / scouting choices."
+      },
+      {
+        "key": "patchwork",
+        "label": "Patchwork",
+        "desc": "Small Wounds can be stabilized without supply loss."
+      }
     ]
   },
   {
@@ -33,6 +57,18 @@
       "mystery",
       "forbidden-tech",
       "rituals"
+    ],
+    "perks": [
+      {
+        "key": "echo",
+        "label": "Arcane Echo",
+        "desc": "Occasionally convert Supplies loss into Suspicion gain instead."
+      },
+      {
+        "key": "warding",
+        "label": "Warding Tricks",
+        "desc": "One 'prevent death' event per run if Wounds are not extreme."
+      }
     ]
   },
   {
@@ -45,6 +81,18 @@
       "medicine",
       "toxins",
       "experiments"
+    ],
+    "perks": [
+      {
+        "key": "medicine",
+        "label": "Field Medicine",
+        "desc": "Wounds reduced after camp if Supplies \u2265 5."
+      },
+      {
+        "key": "volatile",
+        "label": "Volatile Solutions",
+        "desc": "Big swings: some choices grant huge payoff with risk."
+      }
     ]
   },
   {
@@ -57,6 +105,18 @@
       "engineering",
       "ruins",
       "construction"
+    ],
+    "perks": [
+      {
+        "key": "shelter",
+        "label": "Sheltercraft",
+        "desc": "Camp choices can boost Morale without costing Supplies."
+      },
+      {
+        "key": "route",
+        "label": "Route Planning",
+        "desc": "Reduce travel penalties; improve success in 'hold position' scenes."
+      }
     ]
   },
   {
@@ -69,6 +129,18 @@
       "politics",
       "revelations",
       "memory"
+    ],
+    "perks": [
+      {
+        "key": "read_people",
+        "label": "Read People",
+        "desc": "Extra dialogue options that lower Suspicion or raise Morale."
+      },
+      {
+        "key": "truth",
+        "label": "Truth Seeker",
+        "desc": "Better outcomes when investigating league corruption."
+      }
     ]
   },
   {
@@ -81,6 +153,18 @@
       "weather",
       "terrain",
       "hidden-routes"
+    ],
+    "perks": [
+      {
+        "key": "shortcuts",
+        "label": "Shortcuts",
+        "desc": "Sometimes trade time for Supplies: reduce Supplies loss on travel."
+      },
+      {
+        "key": "weather_eye",
+        "label": "Weather Eye",
+        "desc": "Avoid Wounds in storms and aerial encounters more often."
+      }
     ]
   },
   {
@@ -93,6 +177,18 @@
       "resourcefulness",
       "morale",
       "negotiation"
+    ],
+    "perks": [
+      {
+        "key": "rationing",
+        "label": "Rationing",
+        "desc": "Supplies drain slower; camp can restore Morale at low cost."
+      },
+      {
+        "key": "barter",
+        "label": "Barter",
+        "desc": "Better village trade outcomes; supplies gains are bigger."
+      }
     ]
   },
   {
@@ -105,6 +201,18 @@
       "blackmail",
       "contacts",
       "urban-noir"
+    ],
+    "perks": [
+      {
+        "key": "contacts",
+        "label": "Contacts",
+        "desc": "Lower Suspicion in cities; unlock safehouses."
+      },
+      {
+        "key": "leverage",
+        "label": "Leverage",
+        "desc": "In Act 2, can redirect danger toward hired muscle (affects who dies)."
+      }
     ]
   },
   {
@@ -117,6 +225,18 @@
       "mythmaking",
       "inspiration",
       "trickery"
+    ],
+    "perks": [
+      {
+        "key": "anthem",
+        "label": "Camp Anthem",
+        "desc": "Camp restores Morale more; can prevent panic choices."
+      },
+      {
+        "key": "spotlight",
+        "label": "Spotlight",
+        "desc": "High visibility: higher Suspicion risk, but better social gains."
+      }
     ]
   }
 ]

@@ -76,6 +76,82 @@
     ]
   },
   {
+    "key": "theramous",
+    "name": "Theramous",
+    "role": "Super Naturals \u2014 specialist / steady hand",
+    "blurb": "A calm presence with a habit of being right at the worst possible time.",
+    "affinity": {
+      "smith": 2,
+      "leatherworker": 3,
+      "relicator": 3,
+      "alchemist": 2,
+      "architect": 3,
+      "historian": 3,
+      "cartographer": 2,
+      "quartermaster": 3,
+      "infobroker": 2,
+      "bard": 1
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Tradecraft Talk",
+        "unlock": 1,
+        "notes": "He asks about your craft and listens like it matters."
+      },
+      {
+        "tier": 2,
+        "title": "The League\u2019s Math",
+        "unlock": 3,
+        "notes": "Explains why the league always seems to be ahead of the rumor mill."
+      },
+      {
+        "tier": 3,
+        "title": "A Promise in Ink",
+        "unlock": 6,
+        "notes": "You learn what he\u2019s trying to protect by staying in the party."
+      }
+    ]
+  },
+  {
+    "key": "widjet",
+    "name": "Widjet",
+    "role": "Super Naturals \u2014 tinkerer / comic relief",
+    "blurb": "A pocketful of springs and wisdom disguised as nonsense.",
+    "affinity": {
+      "smith": 4,
+      "leatherworker": 2,
+      "relicator": 3,
+      "alchemist": 3,
+      "architect": 3,
+      "historian": 2,
+      "cartographer": 2,
+      "quartermaster": 3,
+      "infobroker": 2,
+      "bard": 3
+    },
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Gadget Nights",
+        "unlock": 1,
+        "notes": "Shows you a strange hinge-mechanism."
+      },
+      {
+        "tier": 2,
+        "title": "Laughing at Giants",
+        "unlock": 3,
+        "notes": "Explains giant sports rituals with weird accuracy."
+      },
+      {
+        "tier": 3,
+        "title": "Hidden Compartment",
+        "unlock": 6,
+        "notes": "He saw something inside the chest when no one was watching."
+      }
+    ]
+  },
+  {
     "key": "jeffery",
     "name": "Jeffery",
     "role": "Pilgrim \u2014 the only one who can open the chest",
@@ -114,85 +190,167 @@
     ]
   },
   {
-    "key": "felix",
-    "name": "Felix",
-    "role": "Traveler \u2014 hired muscle / scout",
-    "blurb": "Laughs first, checks exits second. Likes clean plans and clean knives.",
-    "affinity": {
-      "smith": 3,
-      "leatherworker": 4,
-      "relicator": 1,
-      "alchemist": 2,
-      "architect": 2,
-      "historian": 1,
-      "cartographer": 4,
-      "quartermaster": 3,
-      "infobroker": 3,
-      "bard": 2
-    },
+    "key": "pilgrim_1",
+    "name": "Iria",
+    "role": "Pilgrim \u2014 stone-singer",
+    "blurb": "Hums when nervous. Knows the old giant words.",
+    "affinity": {},
     "tiers": [
       {
         "tier": 1,
-        "title": "Scout Talk",
+        "title": "Old Hymns",
         "unlock": 1,
-        "notes": "Tracks, weather, and shortcuts."
-      },
-      {
-        "tier": 2,
-        "title": "The Bad Road",
-        "unlock": 3,
-        "notes": "Shares why he avoids certain villages."
-      },
-      {
-        "tier": 3,
-        "title": "The Price of Protection",
-        "unlock": 6,
-        "notes": "A deal he regrets with league reps."
+        "notes": "She teaches you a phrase that means 'safe passage'."
       }
     ]
   },
   {
-    "key": "widjet",
-    "name": "Widjet",
-    "role": "Traveler \u2014 tinkerer / comic relief",
-    "blurb": "A pocketful of springs and wisdom disguised as nonsense.",
-    "affinity": {
-      "smith": 4,
-      "leatherworker": 2,
-      "relicator": 3,
-      "alchemist": 3,
-      "architect": 3,
-      "historian": 2,
-      "cartographer": 2,
-      "quartermaster": 3,
-      "infobroker": 2,
-      "bard": 3
-    },
+    "key": "pilgrim_2",
+    "name": "Rook",
+    "role": "Pilgrim \u2014 pack-master",
+    "blurb": "Can calm beasts with a look. Keeps the offering secure.",
+    "affinity": {},
     "tiers": [
       {
         "tier": 1,
-        "title": "Gadget Nights",
+        "title": "Load & Balance",
         "unlock": 1,
-        "notes": "Shows you a strange hinge-mechanism."
-      },
-      {
-        "tier": 2,
-        "title": "Laughing at Giants",
-        "unlock": 3,
-        "notes": "Explains giant sports rituals with weird accuracy."
-      },
-      {
-        "tier": 3,
-        "title": "Hidden Compartment",
-        "unlock": 6,
-        "notes": "He saw something inside the chest when no one was watching."
+        "notes": "He shows you how to shift weight so the cart doesn\u2019t betray you."
       }
-    ],
-    "availabilityRules": [
+    ]
+  },
+  {
+    "key": "pilgrim_3",
+    "name": "Sable",
+    "role": "Pilgrim \u2014 quiet watcher",
+    "blurb": "Speaks rarely; notices everything.",
+    "affinity": {},
+    "tiers": [
       {
-        "when": "after_scene",
-        "sceneKey": "road-02_harpies",
-        "note": "Widjet joins after the harpy swarm incident."
+        "tier": 1,
+        "title": "Eyes on the League",
+        "unlock": 1,
+        "notes": "She points out the signs of being followed."
+      }
+    ]
+  },
+  {
+    "key": "guide_1",
+    "name": "Brann",
+    "role": "Hired Guide \u2014 spear & shield",
+    "blurb": "Professional. Not cheap. Not sentimental.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Hard Terms",
+        "unlock": 1,
+        "notes": "He explains what your coin actually buys."
+      }
+    ]
+  },
+  {
+    "key": "guide_2",
+    "name": "Mira",
+    "role": "Hired Guide \u2014 tracker",
+    "blurb": "Smiles while counting exits.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Tracks in Snow",
+        "unlock": 1,
+        "notes": "She teaches you to read wind like handwriting."
+      }
+    ]
+  },
+  {
+    "key": "guide_3",
+    "name": "Kest",
+    "role": "Hired Guide \u2014 bow",
+    "blurb": "Speaks in short sentences; hits in longer distances.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "No Heroics",
+        "unlock": 1,
+        "notes": "He warns you about 'league hunters'."
+      }
+    ]
+  },
+  {
+    "key": "master",
+    "name": "Master Orlan",
+    "role": "Village Master \u2014 healer-smith",
+    "blurb": "A veteran craftsperson who treats wounds like flawed steel.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Lessons Paid in Sweat",
+        "unlock": 1,
+        "notes": "He offers to teach\u2026 if you earn it."
+      }
+    ]
+  },
+  {
+    "key": "apprentice",
+    "name": "Pip",
+    "role": "Apprentice \u2014 bright-eyed",
+    "blurb": "Wants to see giantland someday. Talks too fast.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Pocket Questions",
+        "unlock": 1,
+        "notes": "Asks you what giants are *really* like."
+      }
+    ]
+  },
+  {
+    "key": "mother_ref",
+    "name": "Lysa",
+    "role": "Refuge Mother",
+    "blurb": "Practical kindness. Protects her children with her spine.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Shared Fire",
+        "unlock": 1,
+        "notes": "A small act of care changes the whole mood of camp."
+      }
+    ]
+  },
+  {
+    "key": "child_1",
+    "name": "Nell",
+    "role": "Child \u2014 daughter",
+    "blurb": "Curious, brave, and not impressed by adults.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Stories for Coins",
+        "unlock": 1,
+        "notes": "She trades local gossip for a bedtime tale."
+      }
+    ]
+  },
+  {
+    "key": "child_2",
+    "name": "Hob",
+    "role": "Child \u2014 son",
+    "blurb": "Quiet until he laughs. Then you remember why you keep walking.",
+    "affinity": {},
+    "tiers": [
+      {
+        "tier": 1,
+        "title": "Lucky Charm",
+        "unlock": 1,
+        "notes": "He gives you a trinket 'for the bad nights'."
       }
     ]
   }

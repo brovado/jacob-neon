@@ -1,5 +1,5 @@
 const $ = (sel) => document.querySelector(sel);
-const STORAGE_KEY = "jacob_neon_save_v1";
+const STORAGE_KEY = "jacob_neon_save_v2";
 
 function toast(msg){
   const el = $("#toast");
@@ -21,8 +21,10 @@ function defaultState(){
     gift: null,
     nightActionsLeft: 2,
     bonds: {},
-    party: ["apex","dedor","jeffery","felix"],
+    party: ["apex","dedor","theramous","widjet","jeffery","pilgrim_1","pilgrim_2","pilgrim_3"],
     flags: {},
+    stats: { supplies: 20, morale: 10, suspicion: 0, wounds: 0 },
+    dead: [],
     _passedScenes: {}
   };
 }
@@ -34,14 +36,9 @@ function saveState(st){
 }
 
 function loadState(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  }catch(e){
-    return null;
-  }
+  try{ const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : null; }
+  catch(e){ return null; }
 }
-
 function resetState(){ localStorage.removeItem(STORAGE_KEY); }
 
 function escapeHtml(str){
@@ -49,43 +46,57 @@ function escapeHtml(str){
     "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"
   }[c]));
 }
-function pillList(items){
-  return (items || []).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join("");
-}
 function clamp(n, lo, hi){ return Math.max(lo, Math.min(hi, n)); }
 
-function computeTier(npc, interactions){
-  let tier = 0;
-  for(const t of npc.tiers || []){
-    if(interactions >= t.unlock) tier = t.tier;
+function applyDelta(obj, delta){
+  if(!delta) return;
+  for(const [k,v] of Object.entries(delta)){
+    obj[k] = (obj[k] ?? 0) + Number(v);
   }
-  return tier;
 }
 
-function ensurePartyAvailability(state, npcs){
-  for(const npc of npcs){
-    if(!npc.availabilityRules) continue;
-    for(const rule of npc.availabilityRules){
-      if(rule.when === "after_scene"){
-        if(state._passedScenes?.[rule.sceneKey] && !state.party.includes(npc.key)){
-          state.party.push(npc.key);
-          toast(`${npc.name} joins the party.`);
-        }
-      }
+function applyEffects(state, effects){
+  if(!effects) return;
+
+  if(effects.gift) state.gift = effects.gift;
+
+  if(effects.flags){
+    for(const [k,v] of Object.entries(effects.flags)){
+      state.flags[k] = v;
     }
   }
-}
 
-function markScenePassed(state, sceneKey){
-  state._passedScenes = state._passedScenes || {};
-  state._passedScenes[sceneKey] = true;
+  if(effects.stats){
+    applyDelta(state.stats, effects.stats);
+    state.stats.supplies = clamp(state.stats.supplies, 0, 99);
+    state.stats.morale = clamp(state.stats.morale, -20, 20);
+    state.stats.suspicion = clamp(state.stats.suspicion, 0, 99);
+    state.stats.wounds = clamp(state.stats.wounds, 0, 99);
+  }
+
+  if(effects.party){
+    const add = effects.party.add || [];
+    const rem = effects.party.remove || [];
+    for(const k of add){
+      if(!state.party.includes(k) && !state.dead.includes(k)) state.party.push(k);
+    }
+    for(const k of rem){
+      state.party = state.party.filter(x=>x!==k);
+    }
+  }
+
+  if(effects.bond){
+    for(const [npcKey,delta] of Object.entries(effects.bond)){
+      state.bonds[npcKey] = (state.bonds[npcKey] ?? 0) + Number(delta);
+    }
+  }
 }
 
 function exportSave(state){
   const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "jacob_neon_save.json";
+  a.download = "jacob_neon_save_v2.json";
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -112,38 +123,55 @@ async function importSave(){
   inp.click();
 }
 
-function buildClassEmphasisTable(classes){
-  const rows = classes.map(c => `
-    <tr>
-      <td><b>${escapeHtml(c.name)}</b><div class="small">${escapeHtml(c.tagline)}</div></td>
-      <td>${pillList(c.sceneEmphasis)}</td>
-    </tr>
-  `).join("");
-  return `
-    <div class="small">Class → Scene Emphasis</div>
-    <table class="table" style="margin-top:8px;">
-      <thead><tr><th style="width:34%;">Class</th><th>Scene Emphasis</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-  `;
+function npcByKey(npcs, key){ return npcs.find(n=>n.key===key) || null; }
+
+function computeTier(npc, interactions){
+  let tier = 0;
+  for(const t of npc?.tiers || []) if(interactions >= t.unlock) tier = t.tier;
+  return tier;
 }
 
-function buildNpcAffinityMatrix(classes, npcs){
-  const head = `<tr><th>NPC</th>${classes.map(c=>`<th>${escapeHtml(c.name)}</th>`).join("")}</tr>`;
-  const body = npcs.map(n=>{
-    const row = classes.map(c=>{
-      const v = (n.affinity && n.affinity[c.key]) ?? 0;
-      return `<td>${v === 0 ? "—" : String(v)}</td>`;
-    }).join("");
-    return `<tr><td><b>${escapeHtml(n.name)}</b><div class="small">${escapeHtml(n.role)}</div></td>${row}</tr>`;
-  }).join("");
-  return `
-    <div class="small" style="margin-top:14px;">NPC → Class Affinity (0–4)</div>
-    <table class="table" style="margin-top:8px;">
-      <thead>${head}</thead>
-      <tbody>${body}</tbody>
-    </table>
-  `;
+// Class perk: small automatic modifiers (simple + visible)
+function applyClassPassive(state, panel){
+  const c = state.classKey;
+  if(!c) return;
+
+  // examples (you can expand these)
+  if(panel.scene === "road-02_harpies"){
+    if(c === "cartographer") state.stats.wounds = Math.max(0, state.stats.wounds - 1);
+    if(c === "smith") state.stats.morale = clamp(state.stats.morale + 1, -20, 20);
+  }
+}
+
+// Death system hook: always ensures one guide dies unless you pay a cost.
+// You can later expand to more nuanced logic or multiple deaths.
+function resolveDeathEvent(state, npcs){
+  const guides = ["guide_1","guide_2","guide_3"].filter(k => state.party.includes(k) && !state.dead.includes(k));
+  if(guides.length === 0){
+    toast("No guides present for the death event.");
+    return null;
+  }
+
+  // If you're prepared (supplies high) you can save everyone by paying supplies.
+  if(state.stats.supplies >= 10 && state.stats.morale >= 5){
+    return { canSaveAll: true, costSupplies: 10, options: guides };
+  }
+
+  // Otherwise: someone will die; survival odds depend on wounds/suspicion.
+  return { canSaveAll: false, costSupplies: 0, options: guides };
+}
+
+function renderStateSidebar(state, npcs){
+  $("#stGift").textContent = state.gift ?? "—";
+  $("#stClass").textContent = state.classKey ?? "—";
+  $("#stParty").textContent = state.party.map(k => npcByKey(npcs,k)?.name ?? k).join(", ");
+  $("#stActions").textContent = String(state.nightActionsLeft);
+  $("#stBonds").textContent = Object.entries(state.bonds).map(([k,v])=>`${npcByKey(npcs,k)?.name ?? k}:${v}`).join(" • ") || "—";
+
+  $("#stSup").textContent = String(state.stats.supplies);
+  $("#stMor").textContent = String(state.stats.morale);
+  $("#stSus").textContent = String(state.stats.suspicion);
+  $("#stWou").textContent = String(state.stats.wounds);
 }
 
 function setHeaderBadges(state, panel, sceneTitle){
@@ -153,30 +181,47 @@ function setHeaderBadges(state, panel, sceneTitle){
   $("#panelMeta").textContent = `#${state.idx+1}`;
 }
 
-function renderStateSidebar(state, npcsByKey){
-  $("#stGift").textContent = state.gift ?? "—";
-  $("#stParty").textContent = state.party.map(k=>npcsByKey[k]?.name ?? k).join(", ");
-  $("#stActions").textContent = String(state.nightActionsLeft);
-  const bonds = Object.entries(state.bonds || {}).map(([k,v])=>`${npcsByKey[k]?.name ?? k}:${v}`).join(" • ");
-  $("#stBonds").textContent = bonds || "—";
-}
-
 function renderPanel(panel, ctx){
-  const {state, classes, npcs, npcsByKey, scenesByKey} = ctx;
+  const {state, classes, npcs, scenesByKey, panels} = ctx;
+
+  // passive class effects (kept light)
+  applyClassPassive(state, panel);
+
   const container = $("#panelBody");
   container.innerHTML = "";
-
   $("#panelImg").src = panel.image || "assets/panels/placeholder_choice.svg";
-  $("#panelImg").alt = panel.title || panel.scene || "panel art";
 
   const sceneTitle = scenesByKey[panel.scene]?.title ?? panel.scene;
   setHeaderBadges(state, panel, sceneTitle);
-  renderStateSidebar(state, npcsByKey);
+  renderStateSidebar(state, npcs);
+  saveState(state);
 
-  if(panel.scene) markScenePassed(state, panel.scene);
-  ensurePartyAvailability(state, npcs);
+  // Gate: class must be selected
+  if(panel.kind === "class_select"){
+    container.innerHTML = `
+      <div class="panel-title">${escapeHtml(panel.prompt ?? "Choose your class")}</div>
+      <div class="choice-list">
+        ${classes.map((c)=>`
+          <button class="choice" data-class="${escapeHtml(c.key)}">
+            <b>${escapeHtml(c.name)}</b>
+            <div class="small">${escapeHtml(c.tagline)}</div>
+          </button>
+        `).join("")}
+      </div>
+      <div class="small" style="margin-top:10px;">Class perks influence stats & outcomes.</div>
+    `;
+    container.querySelectorAll("[data-class]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        state.classKey = btn.getAttribute("data-class");
+        toast(`Class locked: ${state.classKey}`);
+        saveState(state);
+        next(ctx);
+      });
+    });
+    return;
+  }
 
-  if(["narration","arc","ending"].includes(panel.kind)){
+  if(panel.kind === "narration" || panel.kind === "ending"){
     container.innerHTML = `
       ${panel.title ? `<div class="panel-title">${escapeHtml(panel.title)}</div>` : ""}
       <div class="linebox">${escapeHtml(panel.text)}</div>
@@ -201,18 +246,13 @@ function renderPanel(panel, ctx){
       <div class="choice-list">
         ${choices.map((c,i)=>`<button class="choice" data-choice="${i}">${escapeHtml(c.label)}</button>`).join("")}
       </div>
-      <div class="small" style="margin-top:10px;">Choices can set flags, items, relationships, etc.</div>
+      <div class="small" style="margin-top:10px;">Your stats carry forward.</div>
     `;
     container.querySelectorAll("[data-choice]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const i = Number(btn.getAttribute("data-choice"));
         const pick = choices[i];
-        if(pick?.effects){
-          for(const [k,v] of Object.entries(pick.effects)){
-            if(k === "gift") state.gift = v;
-            else state.flags[k] = v;
-          }
-        }
+        applyEffects(state, pick?.effects);
         toast("Choice locked.");
         saveState(state);
         next(ctx);
@@ -221,77 +261,39 @@ function renderPanel(panel, ctx){
     return;
   }
 
-  if(panel.kind === "class_select"){
-    container.innerHTML = `
-      <div class="panel-title">${escapeHtml(panel.prompt ?? "Choose your class")}</div>
-      <div class="choice-list">
-        ${classes.map((c)=>`
-          <button class="choice" data-class="${escapeHtml(c.key)}">
-            <b>${escapeHtml(c.name)}</b>
-            <div class="small">${escapeHtml(c.tagline)}</div>
-            <div style="margin-top:6px;">${pillList(c.sceneEmphasis)}</div>
-          </button>
-        `).join("")}
-      </div>
-      <div class="small" style="margin-top:10px;">Your class affects NPC affinity and optional scene flavor.</div>
-    `;
-    container.querySelectorAll("[data-class]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        state.classKey = btn.getAttribute("data-class");
-        toast(`Class locked: ${state.classKey}`);
-        saveState(state);
-        next(ctx);
-      });
-    });
-    return;
-  }
-
   if(panel.kind === "camp"){
-    const available = state.party.map(k=>npcsByKey[k]).filter(Boolean);
-
-    const renderTierText = (n, interactions) => {
-      const tier = computeTier(n, interactions);
-      if(tier <= 0) return `<div class="small">No bond tier unlocked yet.</div>`;
-      const t = (n.tiers || []).find(x=>x.tier === tier);
-      return `
-        <div><b>${escapeHtml(t?.title ?? "Bond Moment")}</b></div>
-        <div class="small">${escapeHtml(t?.notes ?? "")}</div>
-      `;
-    };
+    const party = state.party.filter(k => !state.dead.includes(k));
+    const available = party.map(k=>npcByKey(npcs,k)).filter(Boolean);
 
     const npcCard = (n) => {
       const interactions = state.bonds[n.key] ?? 0;
       const tier = computeTier(n, interactions);
       const nextTier = (n.tiers || []).find(t => t.unlock > interactions);
-      const classAff = (state.classKey && n.affinity) ? (n.affinity[state.classKey] ?? 0) : 0;
-
       return `
         <div class="linebox" style="margin-top:10px;">
           <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
             <div>
               <div><b>${escapeHtml(n.name)}</b> <span class="pill">${escapeHtml(n.role)}</span></div>
               <div class="small">${escapeHtml(n.blurb)}</div>
-              <div class="small" style="margin-top:6px;">
-                Bond: <b>${interactions}</b> • Tier: <b>${tier}</b> • Class Affinity: <b>${classAff}</b>/4
-              </div>
+              <div class="small" style="margin-top:6px;">Bond: <b>${interactions}</b> • Tier: <b>${tier}</b></div>
             </div>
             <button class="btn primary" data-talk="${escapeHtml(n.key)}" ${state.nightActionsLeft<=0 ? "disabled":""}>Talk</button>
           </div>
           <div class="hr"></div>
-          ${renderTierText(n, interactions)}
-          <div class="small" style="margin-top:8px;">
-            ${nextTier ? `Next unlock at <b>${nextTier.unlock}</b>: ${escapeHtml(nextTier.title)}` : `All tiers unlocked.`}
-          </div>
+          ${tier>0 ? `<div><b>${escapeHtml((n.tiers||[]).find(x=>x.tier===tier)?.title || "Bond Moment")}</b></div>
+                     <div class="small">${escapeHtml((n.tiers||[]).find(x=>x.tier===tier)?.notes || "")}</div>`
+                   : `<div class="small">No bond tier unlocked yet.</div>`}
+          <div class="small" style="margin-top:8px;">${nextTier ? `Next unlock at <b>${nextTier.unlock}</b>: ${escapeHtml(nextTier.title)}` : `All tiers unlocked.`}</div>
         </div>
       `;
     };
 
     container.innerHTML = `
       <div class="panel-title">${escapeHtml(panel.prompt ?? "Camp")}</div>
-      <div class="small">You have <b>${state.nightActionsLeft}</b> action(s) tonight.</div>
+      <div class="small">Actions tonight: <b>${state.nightActionsLeft}</b>. Morale is affected by camp choices.</div>
       ${available.map(npcCard).join("")}
       <div class="hr"></div>
-      <div class="small">When you’re done, press <b>Next</b> to move on.</div>
+      <div class="small">Press <b>Next</b> when done.</div>
     `;
 
     container.querySelectorAll("[data-talk]").forEach(btn=>{
@@ -299,19 +301,96 @@ function renderPanel(panel, ctx){
         if(state.nightActionsLeft <= 0) return;
         const k = btn.getAttribute("data-talk");
         state.bonds[k] = (state.bonds[k] ?? 0) + 1;
-
-        const npc = npcsByKey[k];
-        const aff = (state.classKey && npc?.affinity) ? (npc.affinity[state.classKey] ?? 0) : 0;
-        if(aff >= 4 && Math.random() < 0.33){
-          state.bonds[k] += 1;
-          toast(`${npc.name} vibes with your craft (+1 bond).`);
-        }else{
-          toast(`You talk with ${npc.name}.`);
-        }
-
         state.nightActionsLeft = clamp(state.nightActionsLeft - 1, 0, 99);
+
+        // camp restores morale a bit by default; class perks can boost later
+        state.stats.morale = clamp(state.stats.morale + 1, -20, 20);
+
+        toast(`You talk with ${npcByKey(npcs,k)?.name ?? k}.`);
         saveState(state);
         renderPanel(panel, ctx);
+      });
+    });
+    return;
+  }
+
+  if(panel.kind === "death_choice"){
+    const ev = resolveDeathEvent(state, npcs);
+    if(!ev){
+      container.innerHTML = `<div class="linebox">No valid death event options.</div>`;
+      return;
+    }
+
+    const optionButtons = ev.options.map(k => {
+      const n = npcByKey(npcs,k);
+      return `<button class="choice" data-die="${k}">${escapeHtml(n?.name ?? k)} — pull them back first</button>`;
+    }).join("");
+
+    const saveAllBtn = ev.canSaveAll
+      ? `<button class="choice" data-saveall="1">Spend ${ev.costSupplies} Supplies to save everyone</button>`
+      : "";
+
+    container.innerHTML = `
+      <div class="panel-title">${escapeHtml(panel.prompt ?? "Death Choice")}</div>
+      <div class="linebox">
+        <div class="small">This event is designed to make choices matter. If you’re well-prepared, you can save all.</div>
+        <div class="small">Current: Supplies <b>${state.stats.supplies}</b>, Morale <b>${state.stats.morale}</b>, Wounds <b>${state.stats.wounds}</b>, Suspicion <b>${state.stats.suspicion}</b>.</div>
+      </div>
+      <div class="choice-list" style="margin-top:10px;">
+        ${saveAllBtn}
+        ${optionButtons}
+      </div>
+      <div class="small" style="margin-top:10px;">If you don't save all, the one you don't pull back… doesn't make it.</div>
+    `;
+
+    if(ev.canSaveAll){
+      container.querySelector("[data-saveall]")?.addEventListener("click", ()=>{
+        state.stats.supplies = clamp(state.stats.supplies - ev.costSupplies, 0, 99);
+        toast("You pay the cost. Everyone lives.");
+        saveState(state);
+        next(ctx);
+      });
+    }
+
+    container.querySelectorAll("[data-die]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const saved = btn.getAttribute("data-die"); // we interpret: you saved this one, another dies
+        const options = ev.options.slice();
+        // pick the victim: most wounded context -> deterministic-ish (you can later make this a second choice)
+        // victim chosen as the first different one for now
+        const victim = options.find(x => x !== saved) || saved;
+
+        // class perk: info broker can redirect danger (reduce chance chosen victim is a guide you care about)
+        if(state.classKey === "infobroker" && options.length >= 2){
+          // if victim is guide_2 or guide_3, swap victim to guide_1 sometimes
+          if(victim !== "guide_1" && options.includes("guide_1")){
+            // deterministic based on suspicion
+            if(state.stats.suspicion >= 2){
+              // redirect
+              const newVictim = "guide_1";
+              state.dead.push(newVictim);
+              state.party = state.party.filter(x=>x!==newVictim);
+              toast(`${npcByKey(npcs,newVictim)?.name ?? newVictim} dies. You rerouted the hunter’s attention.`);
+            }else{
+              state.dead.push(victim);
+              state.party = state.party.filter(x=>x!==victim);
+              toast(`${npcByKey(npcs,victim)?.name ?? victim} dies.`);
+            }
+          }else{
+            state.dead.push(victim);
+            state.party = state.party.filter(x=>x!==victim);
+            toast(`${npcByKey(npcs,victim)?.name ?? victim} dies.`);
+          }
+        }else{
+          state.dead.push(victim);
+          state.party = state.party.filter(x=>x!==victim);
+          toast(`${npcByKey(npcs,victim)?.name ?? victim} dies.`);
+        }
+
+        // death impacts morale
+        state.stats.morale = clamp(state.stats.morale - 3, -20, 20);
+        saveState(state);
+        next(ctx);
       });
     });
 
@@ -324,59 +403,46 @@ function renderPanel(panel, ctx){
 function next(ctx){
   const {state, panels} = ctx;
   const cur = panels[state.idx];
-
-  if(cur?.kind === "class_select" && !state.classKey){
-    toast("Pick a class first.");
-    return;
-  }
+  if(cur?.kind === "class_select" && !state.classKey){ toast("Pick a class first."); return; }
 
   const nxt = panels[state.idx + 1];
-  if(nxt?.kind === "camp"){
-    state.nightActionsLeft = 2;
-  }
+  if(nxt?.kind === "camp") state.nightActionsLeft = 2;
 
   state.idx = Math.min(state.idx + 1, panels.length - 1);
   saveState(state);
   renderPanel(panels[state.idx], ctx);
 }
 
-function restart(){
-  resetState();
-  location.reload();
-}
+function restart(){ resetState(); location.reload(); }
 
 async function main(){
-  const [classes, npcs, scenes, panels] = await Promise.all([
+  const [classes, npcs, panels] = await Promise.all([
     loadJSON("data/classes.json"),
     loadJSON("data/npcs.json"),
-    loadJSON("data/scenes.json"),
     loadJSON("data/panels.json"),
   ]);
 
-  const scenesByKey = Object.fromEntries(scenes.map(s=>[s.key,s]));
-  const npcsByKey = Object.fromEntries(npcs.map(n=>[n.key,n]));
+  // Minimal scenes map for badge display (optional)
+  const scenesByKey = {};
+  for(const p of panels){
+    if(p.scene && !scenesByKey[p.scene]) scenesByKey[p.scene] = { title: p.scene };
+  }
 
   let state = loadState() || defaultState();
   state.flags = state.flags || {};
   state.bonds = state.bonds || {};
-  state.party = state.party || ["apex","dedor","jeffery","felix"];
-  state.nightActionsLeft = Number.isFinite(state.nightActionsLeft) ? state.nightActionsLeft : 2;
+  state.stats = state.stats || { supplies: 20, morale: 10, suspicion: 0, wounds: 0 };
+  state.dead = state.dead || [];
+  state.party = state.party || defaultState().party.slice();
   state.idx = Number.isFinite(state.idx) ? state.idx : 0;
-  state._passedScenes = state._passedScenes || {};
+  state.nightActionsLeft = Number.isFinite(state.nightActionsLeft) ? state.nightActionsLeft : 2;
 
-  const ctx = {state, classes, npcs, scenes, panels, scenesByKey, npcsByKey};
+  const ctx = {state, classes, npcs, panels, scenesByKey};
 
   $("#btnSkip").addEventListener("click", ()=> next(ctx));
   $("#btnRestart").addEventListener("click", restart);
   $("#btnExport").addEventListener("click", ()=> exportSave(state));
   $("#btnImport").addEventListener("click", importSave);
-
-  const dlg = $("#dlgTables");
-  $("#btnTables").addEventListener("click", ()=>{
-    $("#tablesBody").innerHTML = buildClassEmphasisTable(classes) + buildNpcAffinityMatrix(classes, npcs);
-    dlg.showModal();
-  });
-  $("#btnCloseTables").addEventListener("click", ()=> dlg.close());
 
   saveState(state);
   renderPanel(panels[state.idx], ctx);

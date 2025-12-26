@@ -18,14 +18,6 @@
   {
     "id": "p003",
     "scene": "intro-01_neon_pizza",
-    "kind": "dialogue",
-    "image": "assets/panels/placeholder_pizza.svg",
-    "speaker": "Belander",
-    "text": "I heard you\u2019re heading with the Super Naturals tomorrow. Giantik Mountains with that horrible excuse for a minor league team? You\u2019d be better off at the forge with family."
-  },
-  {
-    "id": "p004",
-    "scene": "intro-01_neon_pizza",
     "kind": "choice",
     "image": "assets/panels/placeholder_choice.svg",
     "prompt": "You give Belander a parting gift\u2026",
@@ -33,71 +25,96 @@
       {
         "label": "(Dagger) Your mate\u2019s favorite player\u2019s weapon",
         "effects": {
-          "gift": "dagger"
+          "gift": "dagger",
+          "stats": {
+            "morale": 2
+          }
         }
       },
       {
         "label": "(Mace) Signed by a legendary league member",
         "effects": {
-          "gift": "mace"
+          "gift": "mace",
+          "stats": {
+            "morale": 1,
+            "suspicion": 1
+          }
         }
       },
       {
-        "label": "(Tower Shield) Used in the infamous 3-dragon-breath barrage meme",
+        "label": "(Tower Shield) 3-dragon-breath barrage meme",
         "effects": {
-          "gift": "shield"
+          "gift": "shield",
+          "stats": {
+            "morale": 1,
+            "supplies": -2
+          }
         }
       }
     ]
   },
   {
-    "id": "p005",
+    "id": "p004",
     "scene": "intro-02_departure_eve",
-    "kind": "narration",
+    "kind": "class_select",
     "image": "assets/panels/placeholder_workshop.svg",
-    "title": "Night Before Departure",
-    "text": "I tinker away. It\u2019s unfortunate I haven\u2019t told them I might not return with the party. Not gone forever\u2026 but if Giantland offers a life worth taking, I\u2019ll take it."
+    "prompt": "Night before departure. Choose your specialization tool\u2026"
+  },
+  {
+    "id": "p005",
+    "scene": "road-01_caravan",
+    "kind": "narration",
+    "image": "assets/panels/placeholder_road.svg",
+    "title": "The Road Begins",
+    "text": "The Super Naturals travel with us. Pilgrims too. The offering chest rides like a silent judge."
   },
   {
     "id": "p006",
-    "scene": "intro-02_departure_eve",
-    "kind": "class_select",
-    "image": "assets/panels/placeholder_choice.svg",
-    "prompt": "Choose your specialization tool\u2026"
+    "scene": "road-02_harpies",
+    "kind": "choice",
+    "image": "assets/panels/placeholder_harpies.svg",
+    "prompt": "Harpies descend. Your first real problem on the road\u2026",
+    "choices": [
+      {
+        "label": "Hold formation and protect the cart",
+        "effects": {
+          "stats": {
+            "wounds": 1,
+            "morale": 1
+          }
+        }
+      },
+      {
+        "label": "Scatter into cover; regroup after",
+        "effects": {
+          "stats": {
+            "supplies": -3,
+            "wounds": 0,
+            "morale": -1
+          }
+        }
+      },
+      {
+        "label": "Bait them away from the caravan (risky)",
+        "effects": {
+          "stats": {
+            "wounds": 2,
+            "morale": 2,
+            "suspicion": 1
+          }
+        }
+      }
+    ]
   },
   {
     "id": "p007",
-    "scene": "intro-02_departure_eve",
-    "kind": "dialogue",
-    "image": "assets/panels/placeholder_home.svg",
-    "speaker": "Mother",
-    "text": "Dear son, you should get some rest. Everyone sends their concern. Be safe\u2014 and don\u2019t forget the provisions I prepared for you."
+    "scene": "camp-01",
+    "kind": "camp",
+    "image": "assets/panels/placeholder_camp.svg",
+    "prompt": "Camp night. Spend actions to bond. (Your stats and class can tilt outcomes.)"
   },
   {
     "id": "p008",
-    "scene": "road-01_caravan_begins",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_road.svg",
-    "title": "Caravan Sets Out",
-    "text": "Besides the Super Naturals, there are five of us on this pilgrimage. Relatively safe\u2026 if you ignore the harpies, the hypogriffs, and the time Apex rode a wyvern like it owed him money."
-  },
-  {
-    "id": "p009",
-    "scene": "road-02_harpies",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_harpies.svg",
-    "title": "Harpies in the Wind",
-    "text": "Wings. Screams. Claws. The sky turns into a problem with too many sharp edges."
-  },
-  {
-    "id": "p010",
-    "scene": "road-03_hut_or_fire",
-    "kind": "camp",
-    "image": "assets/panels/placeholder_camp.svg",
-    "prompt": "Camp scene: pick one person to talk to tonight (limited actions)."
-  },
-  {
-    "id": "p011",
     "scene": "giant-01_arrival",
     "kind": "narration",
     "image": "assets/panels/placeholder_mountains.svg",
@@ -105,35 +122,128 @@
     "text": "The mountains don\u2019t rise. They loom\u2014 like someone paused a god mid-sentence."
   },
   {
-    "id": "p012",
-    "scene": "giant-04_blessing",
+    "id": "p009",
+    "scene": "interlude-01_city",
     "kind": "narration",
-    "image": "assets/panels/placeholder_shaman.svg",
-    "title": "Blessing",
-    "text": "The shaman\u2019s words are older than the league and heavier than stone. Something in me shifts\u2014 not louder\u2026 lighter."
+    "image": "assets/panels/placeholder_choice.svg",
+    "title": "Interlude \u2014 The City of Giants",
+    "text": "While others handle their pilgrim business, you explore. The league\u2019s shadow feels\u2026 closer."
+  },
+  {
+    "id": "p010",
+    "scene": "act2-01_hire_guides",
+    "kind": "choice",
+    "image": "assets/panels/placeholder_choice.svg",
+    "prompt": "Act 2 begins. You hire guides for the return journey. Your approach sets the tone.",
+    "choices": [
+      {
+        "label": "Pay premium for professionalism (costly, safer)",
+        "effects": {
+          "stats": {
+            "supplies": -8,
+            "morale": 2
+          },
+          "party": {
+            "add": [
+              "guide_1",
+              "guide_2",
+              "guide_3"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Negotiate hard (cheaper, tension)",
+        "effects": {
+          "stats": {
+            "supplies": -4,
+            "morale": -1,
+            "suspicion": 1
+          },
+          "party": {
+            "add": [
+              "guide_1",
+              "guide_2",
+              "guide_3"
+            ]
+          }
+        }
+      },
+      {
+        "label": "Call in a favor (info broker style)",
+        "effects": {
+          "stats": {
+            "supplies": -2,
+            "suspicion": 2
+          },
+          "party": {
+            "add": [
+              "guide_1",
+              "guide_2",
+              "guide_3"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "p011",
+    "scene": "act2-02_holdout",
+    "kind": "choice",
+    "image": "assets/panels/placeholder_choice.svg",
+    "prompt": "A league hunter presses you. You must hold in a ruin until dawn.",
+    "choices": [
+      {
+        "label": "Fortify the ruin and wait",
+        "effects": {
+          "stats": {
+            "supplies": -3,
+            "morale": 1
+          }
+        }
+      },
+      {
+        "label": "Slip away under darkness",
+        "effects": {
+          "stats": {
+            "morale": -1,
+            "suspicion": -1
+          }
+        }
+      },
+      {
+        "label": "Confront and scare them off (bluff)",
+        "effects": {
+          "stats": {
+            "suspicion": 2,
+            "morale": 2,
+            "wounds": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "p012",
+    "scene": "act2-03_the_choice",
+    "kind": "death_choice",
+    "image": "assets/panels/placeholder_choice.svg",
+    "prompt": "Ambush. Someone is going to die unless you sacrifice something. Choose who you pull back first\u2026"
   },
   {
     "id": "p013",
-    "scene": "giant-05_teleport_split",
-    "kind": "narration",
-    "image": "assets/panels/placeholder_portal.svg",
-    "title": "Not Enough Space",
-    "text": "They teleport out. There isn\u2019t space for all of us. The air snaps closed, and suddenly\u2026 I\u2019m not \u2018with the party\u2019 anymore."
+    "scene": "camp-02",
+    "kind": "camp",
+    "image": "assets/panels/placeholder_camp.svg",
+    "prompt": "Camp night. The survivor(s) carry it differently."
   },
   {
     "id": "p014",
-    "scene": "solo-01_cloud_forge",
-    "kind": "arc",
-    "image": "assets/panels/placeholder_forge.svg",
-    "title": "Cloud Forge",
-    "text": "I find a forge that sings with sky-metal. Everything can be made lighter here\u2014 if your hands can learn the language."
-  },
-  {
-    "id": "p015",
     "scene": "end-01_homecoming",
     "kind": "ending",
     "image": "assets/panels/placeholder_homecoming.svg",
     "title": "Homecoming",
-    "text": "The forge is home. But I\u2019m not the same metal I was when I left."
+    "text": "The forge is home. But you\u2019re not the same metal you were when you left."
   }
 ]
