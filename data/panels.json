@@ -1,904 +1,1039 @@
 [
-  {
-    "id": "p001",
-    "scene": "act0-01_cover",
-    "act": 0,
-    "kind": "narration",
-    "image": "assets/panels/header.png",
-    "title": "Cover \u2014 Neon Pilgrimage",
-    "text": "The neon district flickers as the pilgrimage gathers. You carry the league\u2019s blessing and the weight of a chest that refuses to open. Tonight is the last quiet before the road.",
-    "text_variants": {
-      "historian": "The neon district flickers as the pilgrimage gathers, and you catalog each face like a page. The chest refuses to open, but the story already has a title."
-    }
-  },
-  {
-    "id": "p002",
-    "scene": "act0-02_pub_orb",
-    "act": 0,
-    "kind": "dialogue",
-    "image": "assets/panels/bar.png",
-    "speaker": "Belander",
-    "text": "You bought the table; I brought the orb. Win this round and you can say you beat a league veteran.",
-    "text_variants": {
-      "bard": "You bought the table; I brought the orb. Win this round and you can rhyme about beating a league veteran."
-    }
-  },
-  {
-    "id": "p003",
-    "scene": "act0-03_gift",
-    "act": 0,
-    "kind": "choice",
-    "image": "assets/panels/gifts.png",
-    "prompt": "Before you leave, you gift Belander a token.",
-    "text": "The gift sets a tone for the pilgrimage and becomes a story that follows you.",
-    "choices": [
-      {
-        "label": "A sharpened dagger for fast hands",
-        "desc": "A fighter\u2019s blessing; the night warms.",
-        "effects": {
-          "gift": "dagger",
-          "stats": {
-            "morale": 2
-          },
-          "flags": {
-            "gift_blade": true
-          }
+    {
+        "id": "p001",
+        "scene": "act0-01_cover",
+        "act": 0,
+        "kind": "narration",
+        "image": "assets/panels/header.png",
+        "title": "Cover \u2014 Neon Pilgrimage",
+        "text": "Neon gutters and street-prayers flicker as the pilgrimage gathers. You carry the league\u2019s blessing and the weight of a chest that refuses every tool. Tonight is the last quiet before responsibility becomes miles.",
+        "text_variants": {
+            "historian": "Neon gutters and street-prayers flicker as the pilgrimage gathers, and you read each face like a ledger of vows. The chest refuses every tool, but the record already has a first line.",
+            "smith": "Neon gutters and street-prayers flicker as the pilgrimage gathers. You test the chest\u2019s seams with your thumb and feel a craft made to refuse you. Tonight is the last quiet before miles demand answers.",
+            "quartermaster": "Neon gutters and street-prayers flicker as the pilgrimage gathers. You weigh the chest against rations and boots, already counting what it will cost to carry it. Tonight is the last quiet before the math turns merciless."
         }
-      },
-      {
-        "label": "A signed mace from a league legend",
-        "desc": "Inspires awe but draws whispers.",
-        "effects": {
-          "gift": "mace",
-          "stats": {
-            "morale": 1,
-            "suspicion": 1
-          },
-          "flags": {
-            "gift_mace": true
-          }
-        }
-      },
-      {
-        "label": "A tower shield painted with a meme",
-        "desc": "He laughs, but supplies thin.",
-        "effects": {
-          "gift": "shield",
-          "stats": {
-            "morale": 1,
-            "supplies": -2
-          },
-          "flags": {
-            "gift_shield": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p004",
-    "scene": "act0-04_workshop",
-    "act": 0,
-    "kind": "narration",
-    "image": "assets/panels/workshop1.png",
-    "title": "Workshop Monologue",
-    "text": "Your tools hum in their rack. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. It\u2019s time to decide what kind of craft you bring to the road.",
-    "text_variants": {
-      "smith": "Your tools hum in their rack. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. You run a thumb across the anvil and feel the road ahead in its grain."
-    }
-  },
-  {
-    "id": "p005",
-    "scene": "act0-05_class_select",
-    "act": 0,
-    "kind": "class_select",
-    "image": "assets/panels/classes.png",
-    "prompt": "Choose your class specialization.",
-    "note": "Each class nudges stats differently throughout Act 1 and Act 2."
-  },
-  {
-    "id": "p006",
-    "scene": "act0-06_mom_doorway",
-    "act": 0,
-    "kind": "narration",
-    "image": "assets/panels/mom.png",
-    "title": "Doorway Blessing",
-    "text": "At the doorway, your mother presses a hand to your cheek and says the old words: return with everyone you love. The chest waits outside like a sleeping animal."
-  },
-  {
-    "id": "p007",
-    "scene": "act1-01_departure",
-    "act": 1,
-    "kind": "narration",
-    "image": "assets/panels/cloud-workshop.png",
-    "title": "Act 1 \u2014 Departure",
-    "text": "You leave the neon district before dawn. The road is quiet, and the pilgrims are louder than they think."
-  },
-  {
-    "id": "p008",
-    "scene": "act1-02_stormglass",
-    "act": 1,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Road danger: stormglass ravine.",
-    "text": "The path glows with stormglass shards. The pilgrims hesitate, and the chest feels heavier.",
-    "text_variants": {
-      "cartographer": "The path glows with stormglass shards. Your map shows three lines through it, all of them risky."
     },
-    "emphasis": "travel",
-    "choices": [
-      {
-        "label": "Bridge the gap and push through",
-        "desc": "Fast, loud, and risky.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "morale": 1,
-            "wounds": 1
-          },
-          "flags": {
-            "stormglass_bridge": true
-          }
+    {
+        "id": "p002",
+        "scene": "act0-02_pub_orb",
+        "act": 0,
+        "kind": "dialogue",
+        "image": "assets/panels/bar.png",
+        "speaker": "Belander",
+        "text": "You paid for the table; I hauled the orb. Beat me and you can say you humbled a league veteran\u2014if you can carry the story straight.",
+        "text_variants": {
+            "bard": "You paid for the table; I hauled the orb. Beat me and you can sing about humbling a league veteran\u2014if your tune can carry the weight.",
+            "infobroker": "You paid for the table; I hauled the orb. Beat me and you\u2019ll owe me a rumor worth the league\u2019s pride\u2014no cheap truths.",
+            "quartermaster": "You paid for the table; I hauled the orb. Beat me and I\u2019ll admit you can count a win without counting the cost."
         }
-      },
-      {
-        "label": "Scout a quiet detour",
-        "desc": "Safer, but time drains supplies.",
-        "effects": {
-          "stats": {
-            "supplies": -4,
-            "suspicion": -1
-          },
-          "flags": {
-            "stormglass_detour": true
-          }
+    },
+    {
+        "id": "p003",
+        "scene": "act0-03_gift",
+        "act": 0,
+        "kind": "choice",
+        "image": "assets/panels/gifts.png",
+        "prompt": "Before you leave, you gift Belander a token.",
+        "text": "A leaving gift is not just courtesy here. It sets the tone of the road and becomes a story that follows your name.",
+        "choices": [
+            {
+                "label": "A sharpened dagger for fast hands",
+                "desc": "A fighter\u2019s blessing; the night warms.",
+                "effects": {
+                    "gift": "dagger",
+                    "stats": {
+                        "morale": 2
+                    },
+                    "flags": {
+                        "gift_blade": true
+                    }
+                }
+            },
+            {
+                "label": "A signed mace from a league legend",
+                "desc": "Inspires awe but draws whispers.",
+                "effects": {
+                    "gift": "mace",
+                    "stats": {
+                        "morale": 1,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "gift_mace": true
+                    }
+                }
+            },
+            {
+                "label": "A tower shield painted with a meme",
+                "desc": "He laughs, but supplies thin.",
+                "effects": {
+                    "gift": "shield",
+                    "stats": {
+                        "morale": 1,
+                        "supplies": -2
+                    },
+                    "flags": {
+                        "gift_shield": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p004",
+        "scene": "act0-04_workshop",
+        "act": 0,
+        "kind": "narration",
+        "image": "assets/panels/workshop1.png",
+        "title": "Workshop Monologue",
+        "text": "Your tools hum in their rack, steady as old friends. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. You have to decide what craft you bring to a road that tests more than hands.",
+        "text_variants": {
+            "smith": "Your tools hum in their rack, steady as old friends. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. You rest a palm on the anvil and feel the road in its grain.",
+            "architect": "Your tools hum in their rack, steady as old friends. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. You picture every bridge on the route and measure your responsibility by span.",
+            "relicator": "Your tools hum in their rack, steady as old friends. The Super Naturals \u2014 Apex, Dedor, Theramous, Widjet \u2014 wait outside with the pilgrims and the chest. You already hear the chest like a bell with a missing tone."
         }
-      },
-      {
-        "label": "Camp and wait for the wind to settle",
-        "desc": "Patience keeps wounds low.",
-        "effects": {
-          "stats": {
-            "morale": -1,
-            "wounds": 0
-          },
-          "flags": {
-            "stormglass_wait": true
-          }
+    },
+    {
+        "id": "p005",
+        "scene": "act0-05_class_select",
+        "act": 0,
+        "kind": "class_select",
+        "image": "assets/panels/classes.png",
+        "prompt": "Choose your class specialization.",
+        "note": "Each class nudges stats differently throughout Act 1 and Act 2."
+    },
+    {
+        "id": "p006",
+        "scene": "act0-06_mom_doorway",
+        "act": 0,
+        "kind": "narration",
+        "image": "assets/panels/mom.png",
+        "title": "Doorway Blessing",
+        "text": "At the doorway, your mother presses a hand to your cheek and repeats the old words: return with everyone you love. You nod like it is possible, and the chest waits outside like a sleeping animal.",
+        "text_variants": {
+            "leatherworker": "At the doorway, your mother presses a hand to your cheek and repeats the old words: return with everyone you love. You feel every strap you stitched and wonder which one will fail first.",
+            "alchemist": "At the doorway, your mother presses a hand to your cheek and repeats the old words: return with everyone you love. You taste the oath like a tincture\u2014bitter, necessary, measured in drops.",
+            "bard": "At the doorway, your mother presses a hand to your cheek and repeats the old words: return with everyone you love. You answer with a promise that sounds like a refrain you\u2019re not sure you can hold."
         }
-      }
-    ]
-  },
-  {
-    "id": "p009",
-    "scene": "camp-01",
-    "act": 1,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: spend actions to build bonds.",
-    "note": "Each talk increases a bond and steadies morale."
-  },
-  {
-    "id": "p010",
-    "scene": "act1-03_waystation",
-    "act": 1,
-    "kind": "choice",
-    "image": "assets/panels/shaman.png",
-    "prompt": "Waystation traders offer help\u2014for a price.",
-    "text": "A caravan crew offers supplies and gossip if you share the chest\u2019s story.",
-    "emphasis": "negotiation",
-    "choices": [
-      {
-        "label": "Trade a rumor for supplies",
-        "desc": "Supplies up, suspicion up.",
-        "effects": {
-          "stats": {
-            "supplies": 4,
-            "suspicion": 2
-          },
-          "flags": {
-            "waystation_trade": true
-          }
+    },
+    {
+        "id": "p007",
+        "scene": "act1-01_departure",
+        "act": 1,
+        "kind": "narration",
+        "image": "assets/panels/cloud-workshop.png",
+        "title": "Act 1 \u2014 Departure",
+        "text": "You leave the neon district before dawn. The road is quiet, and the pilgrims are louder than they think\u2014boots, whispers, the creak of the chest.",
+        "text_variants": {
+            "cartographer": "You leave the neon district before dawn. The road opens like a blank line, and every bootprint is a decision you have to chart.",
+            "quartermaster": "You leave the neon district before dawn. You count breath and supplies as the pilgrims talk, and every laugh sounds like a ration burned.",
+            "historian": "You leave the neon district before dawn. The road is quiet, and you are the only one listening to how the pilgrimage rewrites itself with each step."
         }
-      },
-      {
-        "label": "Keep the chest secret",
-        "desc": "Supplies stay lean, suspicion steady.",
-        "effects": {
-          "stats": {
-            "supplies": -1,
-            "suspicion": -1
-          },
-          "flags": {
-            "waystation_secret": true
-          }
+    },
+    {
+        "id": "p008",
+        "scene": "act1-02_stormglass",
+        "act": 1,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Road danger: stormglass ravine.",
+        "text": "The path is littered with stormglass shards that sing in the wind. The pilgrims hesitate, and the chest feels heavier when no one speaks.",
+        "text_variants": {
+            "cartographer": "The path is littered with stormglass shards that sing in the wind. Your map shows three lines through it, all of them risky, all of them yours.",
+            "leatherworker": "The path is littered with stormglass shards that sing in the wind. You eye the straps, the boots, the thin places where a cut becomes a story.",
+            "alchemist": "The path is littered with stormglass shards that sing in the wind. You smell old lightning and wonder what it does to blood."
+        },
+        "emphasis": "travel",
+        "choices": [
+            {
+                "label": "Bridge the gap and push through",
+                "desc": "Fast, loud, and risky.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "morale": 1,
+                        "wounds": 1
+                    },
+                    "flags": {
+                        "stormglass_bridge": true
+                    }
+                }
+            },
+            {
+                "label": "Scout a quiet detour",
+                "desc": "Safer, but time drains supplies.",
+                "effects": {
+                    "stats": {
+                        "supplies": -4,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "stormglass_detour": true
+                    }
+                }
+            },
+            {
+                "label": "Camp and wait for the wind to settle",
+                "desc": "Patience keeps wounds low.",
+                "effects": {
+                    "stats": {
+                        "morale": -1,
+                        "wounds": 0
+                    },
+                    "flags": {
+                        "stormglass_wait": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p009",
+        "scene": "camp-01",
+        "act": 1,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: spend actions to build bonds.",
+        "prompt_variants": {
+            "bard": "Camp night: draw out stories before the fire cools.",
+            "quartermaster": "Camp night: count supplies, then count people.",
+            "relicator": "Camp night: listen for the chest between the cracks of the fire."
+        },
+        "note": "Each talk increases a bond and steadies morale. Small truths surface when the flames are low."
+    },
+    {
+        "id": "p010",
+        "scene": "act1-03_waystation",
+        "act": 1,
+        "kind": "choice",
+        "image": "assets/panels/shaman.png",
+        "prompt": "Waystation traders offer help\u2014for a price.",
+        "text": "A caravan crew offers supplies and gossip if you share the chest\u2019s story. They want leverage, not legend.",
+        "text_variants": {
+            "quartermaster": "A caravan crew offers supplies and gossip if you share the chest\u2019s story. You hear the price in their politeness.",
+            "infobroker": "A caravan crew offers supplies and gossip if you share the chest\u2019s story. You recognize the barter: a rumor for a future favor.",
+            "bard": "A caravan crew offers supplies and gossip if you share the chest\u2019s story. They want a tale that makes them taller on the road."
+        },
+        "emphasis": "negotiation",
+        "choices": [
+            {
+                "label": "Trade a rumor for supplies",
+                "desc": "Supplies up, suspicion up.",
+                "effects": {
+                    "stats": {
+                        "supplies": 4,
+                        "suspicion": 2
+                    },
+                    "flags": {
+                        "waystation_trade": true
+                    }
+                }
+            },
+            {
+                "label": "Keep the chest secret",
+                "desc": "Supplies stay lean, suspicion steady.",
+                "effects": {
+                    "stats": {
+                        "supplies": -1,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "waystation_secret": true
+                    }
+                }
+            },
+            {
+                "label": "Offer craft help instead",
+                "desc": "Costs time but builds morale.",
+                "effects": {
+                    "stats": {
+                        "supplies": -2,
+                        "morale": 2
+                    },
+                    "flags": {
+                        "waystation_craft": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p011",
+        "scene": "camp-02",
+        "act": 1,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: a colder wind.",
+        "prompt_variants": {
+            "leatherworker": "Camp night: wind tests every seam.",
+            "architect": "Camp night: the shelter leans if you let it.",
+            "historian": "Camp night: the old stories sound less like comfort."
+        },
+        "note": "Spend your remaining actions to keep the party together. Silence starts saying things no one will admit."
+    },
+    {
+        "id": "p012",
+        "scene": "act1-04_bridge",
+        "act": 1,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "A cracked sky-bridge blocks the pass.",
+        "text": "The pilgrims argue. The bridge groans under the chest, and the void listens.",
+        "text_variants": {
+            "architect": "The pilgrims argue. You read the bridge like a sick bone and count where it will fail.",
+            "smith": "The pilgrims argue. You feel the bridge like an old hinge, and you know which pins could still hold.",
+            "cartographer": "The pilgrims argue. You search the horizon for alternate passes and find only distance."
+        },
+        "emphasis": "defense",
+        "choices": [
+            {
+                "label": "Reinforce the bridge with spare beams",
+                "desc": "Safer crossing, costs supplies.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "bridge_reinforced": true
+                    }
+                }
+            },
+            {
+                "label": "Send the lightest pilgrims first",
+                "desc": "Risky, but fast.",
+                "effects": {
+                    "stats": {
+                        "morale": -1,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "bridge_risk": true
+                    }
+                }
+            },
+            {
+                "label": "Search for another pass",
+                "desc": "Safer but exhausting.",
+                "effects": {
+                    "stats": {
+                        "supplies": -2,
+                        "wounds": 1
+                    },
+                    "flags": {
+                        "bridge_detour": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p013",
+        "scene": "camp-03",
+        "act": 1,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: the chest hums softly.",
+        "prompt_variants": {
+            "relicator": "Camp night: the chest hums, and you almost hear a reply.",
+            "infobroker": "Camp night: the chest hums, and the secrets around it do, too.",
+            "smith": "Camp night: the chest hums, and you wonder what tool it wants."
+        },
+        "note": "Choose who to speak with as the road shifts into giantland. The firelight makes everyone honest in different ways."
+    },
+    {
+        "id": "p014",
+        "scene": "act1-05_arrival",
+        "act": 1,
+        "kind": "narration",
+        "image": "assets/panels/cover.svg",
+        "title": "Arrival",
+        "text": "Giantland rises like a wall of storm and stone. A shaman waits at the threshold, and every pilgrim suddenly walks like they\u2019re being weighed.",
+        "text_variants": {
+            "historian": "Giantland rises like a wall of storm and stone. You feel the weight of old treaties in the air as a shaman waits at the threshold.",
+            "relicator": "Giantland rises like a wall of storm and stone. The shaman\u2019s presence prickles at the edge of your craft, like a spell watching back.",
+            "cartographer": "Giantland rises like a wall of storm and stone. Your map shrinks in your hand, and the road becomes a cliff."
         }
-      },
-      {
-        "label": "Offer craft help instead",
-        "desc": "Costs time but builds morale.",
-        "effects": {
-          "stats": {
-            "supplies": -2,
-            "morale": 2
-          },
-          "flags": {
-            "waystation_craft": true
-          }
+    },
+    {
+        "id": "p015",
+        "scene": "act1-06_shaman",
+        "act": 1,
+        "kind": "choice",
+        "image": "assets/panels/pub_orb_game.svg",
+        "prompt": "The shaman offers a blessing.",
+        "text": "The blessing is a ritual of safety and consequence. The pilgrims look to you, and the shaman watches how you carry the chest.",
+        "text_variants": {
+            "relicator": "The blessing is a ritual of safety and consequence. You feel the pattern in the air and the cost hidden in the cadence.",
+            "historian": "The blessing is a ritual of safety and consequence. You hear old bargaining in it, an oath that outlives the speaker.",
+            "bard": "The blessing is a ritual of safety and consequence. The shaman\u2019s words are a song without melody, and everyone waits for your verse."
+        },
+        "emphasis": "ritual",
+        "choices": [
+            {
+                "label": "Accept the blessing",
+                "desc": "Morale rises; the rite binds you.",
+                "effects": {
+                    "stats": {
+                        "morale": 2,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "blessing_received": true
+                    },
+                    "unlock": {
+                        "globalNodes": [
+                            "blessing_echo"
+                        ]
+                    }
+                }
+            },
+            {
+                "label": "Ask for proof of safety",
+                "desc": "Slows the rite; suspicion rises.",
+                "effects": {
+                    "stats": {
+                        "morale": -1,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "blessing_questioned": true
+                    }
+                }
+            },
+            {
+                "label": "Decline the blessing",
+                "desc": "You keep control, but the party worries.",
+                "effects": {
+                    "stats": {
+                        "morale": -2,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "blessing_declined": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p016",
+        "scene": "act1-07_proving",
+        "act": 1,
+        "kind": "choice",
+        "image": "assets/panels/workshop_monologue.svg",
+        "prompt": "The proving trial begins.",
+        "text": "To reach the blessing stone, you must prove your craft to the giants. They do not want spectacle; they want truth.",
+        "text_variants": {
+            "smith": "To reach the blessing stone, you must prove your craft to the giants. You feel every eye on your hands, not your reputation.",
+            "historian": "To reach the blessing stone, you must prove your craft to the giants. They test whether you honor the story behind the work.",
+            "architect": "To reach the blessing stone, you must prove your craft to the giants. You read their trial like a structure meant to reveal a flaw."
+        },
+        "emphasis": "ritual",
+        "choices": [
+            {
+                "label": "Demonstrate a steady craft",
+                "desc": "Safe, measured, and respected.",
+                "effects": {
+                    "stats": {
+                        "morale": 1,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "proving_steady": true
+                    }
+                }
+            },
+            {
+                "label": "Show a daring flourish",
+                "desc": "Impresses the giants, but risks wounds.",
+                "effects": {
+                    "stats": {
+                        "morale": 2,
+                        "wounds": 1
+                    },
+                    "flags": {
+                        "proving_daring": true
+                    }
+                }
+            },
+            {
+                "label": "Offer a scholarly explanation",
+                "desc": "Wins respect; costs time.",
+                "effects": {
+                    "stats": {
+                        "supplies": -2,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "proving_lore": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p017",
+        "scene": "act1-08_blessing",
+        "act": 1,
+        "kind": "narration",
+        "image": "assets/panels/cover.svg",
+        "title": "Blessing Stone",
+        "text": "The shaman lays a hand on the chest. The pilgrims stand in a circle as the stone hums with a promise you can\u2019t yet translate.",
+        "text_variants": {
+            "relicator": "The shaman lays a hand on the chest. The stone hums with a pattern you can almost echo, like a spell missing its final note.",
+            "alchemist": "The shaman lays a hand on the chest. The stone hums with a reaction you cannot bottle, and you feel the cost in your teeth.",
+            "historian": "The shaman lays a hand on the chest. The stone hums with a promise old enough to have consequences."
         }
-      }
-    ]
-  },
-  {
-    "id": "p011",
-    "scene": "camp-02",
-    "act": 1,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: a colder wind.",
-    "note": "Spend your remaining actions to keep the party together."
-  },
-  {
-    "id": "p012",
-    "scene": "act1-04_bridge",
-    "act": 1,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "A cracked sky-bridge blocks the pass.",
-    "text": "The pilgrims argue. The chest leans toward the void.",
-    "emphasis": "defense",
-    "choices": [
-      {
-        "label": "Reinforce the bridge with spare beams",
-        "desc": "Safer crossing, costs supplies.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "morale": 1
-          },
-          "flags": {
-            "bridge_reinforced": true
-          }
+    },
+    {
+        "id": "p018",
+        "scene": "interlude-01_city_gate",
+        "act": 1.5,
+        "kind": "narration",
+        "image": "assets/panels/cover.svg",
+        "title": "Interlude \u2014 Giant City",
+        "text": "The pilgrims settle their affairs with the giant elders. You walk the city alone, letting its scale recalibrate your breath and your idea of smallness.",
+        "text_variants": {
+            "infobroker": "The pilgrims settle their affairs with the giant elders. You walk the city alone, tracking who watches and who pretends not to.",
+            "historian": "The pilgrims settle their affairs with the giant elders. You walk the city alone, hearing a history older than the stones."
         }
-      },
-      {
-        "label": "Send the lightest pilgrims first",
-        "desc": "Risky, but fast.",
-        "effects": {
-          "stats": {
-            "morale": -1,
-            "suspicion": 1
-          },
-          "flags": {
-            "bridge_risk": true
-          }
+    },
+    {
+        "id": "p019",
+        "scene": "interlude-02_city_market",
+        "act": 1.5,
+        "kind": "choice",
+        "image": "assets/panels/pub_orb_game.svg",
+        "prompt": "A giant market beckons.",
+        "text": "You have a short window to barter before the return journey. The market feels like a test with too many judges.",
+        "text_variants": {
+            "quartermaster": "You have a short window to barter before the return journey. The market feels like a ledger that wants to be balanced in blood.",
+            "bard": "You have a short window to barter before the return journey. The market feels like a stage where the wrong line can cost you a month.",
+            "infobroker": "You have a short window to barter before the return journey. Every stall hides a contact if you know how to ask."
+        },
+        "emphasis": "negotiation",
+        "choices": [
+            {
+                "label": "Trade for supplies",
+                "desc": "Costly but steady.",
+                "effects": {
+                    "stats": {
+                        "supplies": 5,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "market_trade": true
+                    }
+                }
+            },
+            {
+                "label": "Buy quiet passage",
+                "desc": "Reduces suspicion, costs supplies.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "suspicion": -2
+                    },
+                    "flags": {
+                        "market_passage": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p020",
+        "scene": "interlude-03_city_streets",
+        "act": 1.5,
+        "kind": "narration",
+        "image": "assets/panels/cover.svg",
+        "title": "Leaving the City",
+        "text": "Jeffery returns with the pilgrims. The chest feels warmer, as if it listened while you wandered and chose to say nothing.",
+        "text_variants": {
+            "relicator": "Jeffery returns with the pilgrims. The chest feels warmer, as if it caught a fragment of the city\u2019s old spells.",
+            "quartermaster": "Jeffery returns with the pilgrims. The chest feels warmer, and you wonder how much heat costs to carry.",
+            "historian": "Jeffery returns with the pilgrims. The chest feels warmer, as if it absorbed a story you can\u2019t yet write down."
         }
-      },
-      {
-        "label": "Search for another pass",
-        "desc": "Safer but exhausting.",
-        "effects": {
-          "stats": {
-            "supplies": -2,
-            "wounds": 1
-          },
-          "flags": {
-            "bridge_detour": true
-          }
+    },
+    {
+        "id": "p021",
+        "scene": "act2-01_hire_guides",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/workshop_monologue.svg",
+        "prompt": "Act 2 begins. Hire guides for the return journey.",
+        "text": "The league\u2019s shadow stretches longer. The right guides can buy you a chance to get everyone home.",
+        "text_variants": {
+            "quartermaster": "The league\u2019s shadow stretches longer. The right guides can buy you time, but time is the most expensive supply.",
+            "infobroker": "The league\u2019s shadow stretches longer. The right guides can buy you misdirection, if you can read their price.",
+            "cartographer": "The league\u2019s shadow stretches longer. The right guides can thread paths you haven\u2019t charted."
+        },
+        "choices": [
+            {
+                "label": "Pay premium for professionals",
+                "desc": "Costs supplies, boosts morale.",
+                "effects": {
+                    "stats": {
+                        "supplies": -8,
+                        "morale": 2
+                    },
+                    "party": {
+                        "add": [
+                            "guide_1",
+                            "guide_2",
+                            "guide_3"
+                        ]
+                    },
+                    "flags": {
+                        "guides_hired": true
+                    }
+                }
+            },
+            {
+                "label": "Negotiate hard",
+                "desc": "Cheaper, but the tension rises.",
+                "effects": {
+                    "stats": {
+                        "supplies": -4,
+                        "morale": -1,
+                        "suspicion": 1
+                    },
+                    "party": {
+                        "add": [
+                            "guide_1",
+                            "guide_2",
+                            "guide_3"
+                        ]
+                    },
+                    "flags": {
+                        "guides_hired": true
+                    }
+                }
+            },
+            {
+                "label": "Call in a favor",
+                "desc": "Spend reputation; pay in suspicion.",
+                "effects": {
+                    "stats": {
+                        "supplies": -2,
+                        "suspicion": 2
+                    },
+                    "party": {
+                        "add": [
+                            "guide_1",
+                            "guide_2",
+                            "guide_3"
+                        ]
+                    },
+                    "flags": {
+                        "guides_hired": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p022",
+        "scene": "camp-04",
+        "act": 2,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: new voices join the fire.",
+        "prompt_variants": {
+            "bard": "Camp night: new voices test the circle of the fire.",
+            "quartermaster": "Camp night: new voices, new costs.",
+            "infobroker": "Camp night: new voices, and you listen for what they don\u2019t say."
+        },
+        "note": "Guides and pilgrims swap warnings about the road home. Someone holds back the worst of it."
+    },
+    {
+        "id": "p023",
+        "scene": "act2-02_league_pressure",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/pub_orb_game.svg",
+        "prompt": "League pressure on the return path.",
+        "text": "A league envoy offers \u2018protection\u2019 in exchange for the chest. The offer is polite enough to be a threat.",
+        "text_variants": {
+            "infobroker": "A league envoy offers \u2018protection\u2019 in exchange for the chest. You recognize the script and the knife hidden in the ink.",
+            "historian": "A league envoy offers \u2018protection\u2019 in exchange for the chest. You hear old treaties in the wording, and how they break.",
+            "bard": "A league envoy offers \u2018protection\u2019 in exchange for the chest. The pitch is rehearsed, but the eyes are not."
+        },
+        "emphasis": "intrigue",
+        "choices": [
+            {
+                "label": "Feed them a false trail",
+                "desc": "Suspicion drops, morale steadies.",
+                "effects": {
+                    "stats": {
+                        "suspicion": -2,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "league_false_trail": true
+                    }
+                }
+            },
+            {
+                "label": "Refuse and press on",
+                "desc": "Bold, but risky.",
+                "effects": {
+                    "stats": {
+                        "suspicion": 2,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "league_refused": true
+                    }
+                }
+            },
+            {
+                "label": "Trade a minor relic",
+                "desc": "Costs supplies, buys time.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "league_bribed": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p024",
+        "scene": "act2-03_holdout",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Holdout in the ruin.",
+        "text": "A league hunter presses you. You must hold in a ruin until dawn, counting the cracks in the stone and in your trust.",
+        "text_variants": {
+            "architect": "A league hunter presses you. You must hold in a ruin until dawn, reading its bones for somewhere to hide the living.",
+            "smith": "A league hunter presses you. You must hold in a ruin until dawn, and you wish you\u2019d brought more metal than prayers.",
+            "quartermaster": "A league hunter presses you. You must hold in a ruin until dawn, and every breath counts like a supply.",
+            "infobroker": "A league hunter presses you. You must hold in a ruin until dawn, and you wonder who sold the trail."
+        },
+        "emphasis": "defense",
+        "choices": [
+            {
+                "label": "Fortify and wait",
+                "desc": "Defensive stance; minor supply loss.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "holdout_fortify": true
+                    }
+                }
+            },
+            {
+                "label": "Slip away under darkness",
+                "desc": "Lower suspicion, but morale dips.",
+                "effects": {
+                    "stats": {
+                        "morale": -1,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "holdout_slip": true
+                    }
+                }
+            },
+            {
+                "label": "Confront and bluff",
+                "desc": "Risk wounds for a bold win.",
+                "effects": {
+                    "stats": {
+                        "suspicion": 2,
+                        "morale": 2,
+                        "wounds": 1
+                    },
+                    "flags": {
+                        "holdout_bluff": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p025",
+        "scene": "camp-05",
+        "act": 2,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: the league\u2019s shadow lengthens.",
+        "prompt_variants": {
+            "infobroker": "Camp night: the league\u2019s shadow has a name now.",
+            "cartographer": "Camp night: the shadow reaches farther than your map.",
+            "bard": "Camp night: the songs grow quieter under the shadow."
+        },
+        "note": "Spend actions to steady the party before the next push. The fire burns low, and no one trusts the dark."
+    },
+    {
+        "id": "p026",
+        "scene": "act2-04_ambush_setup",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Scouts report an ambush ahead.",
+        "text": "The guides ask for a call. The league hunter will strike either way; you choose who pays first.",
+        "text_variants": {
+            "cartographer": "The guides ask for a call. The league hunter will strike either way; you choose the line you\u2019ll be remembered by.",
+            "leatherworker": "The guides ask for a call. The league hunter will strike either way; you feel every strap you might cut to save a life.",
+            "infobroker": "The guides ask for a call. The league hunter will strike either way; you weigh who the league expects you to sacrifice."
+        },
+        "emphasis": "travel",
+        "choices": [
+            {
+                "label": "Build a barricade and absorb the hit",
+                "desc": "Costs supplies, lowers wounds.",
+                "effects": {
+                    "stats": {
+                        "supplies": -4,
+                        "wounds": -1
+                    },
+                    "flags": {
+                        "ambush_barricade": true
+                    }
+                }
+            },
+            {
+                "label": "Scatter and regroup",
+                "desc": "Risks morale, lowers suspicion.",
+                "effects": {
+                    "stats": {
+                        "morale": -2,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "ambush_scatter": true
+                    }
+                }
+            },
+            {
+                "label": "Lure the hunter toward the guides",
+                "desc": "Cruel but efficient.",
+                "effects": {
+                    "stats": {
+                        "suspicion": 2,
+                        "morale": -1
+                    },
+                    "flags": {
+                        "ambush_lure": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p027",
+        "scene": "act2-05_death_choice",
+        "act": 2,
+        "kind": "death_choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Ambush. Someone will die unless you pay a cost.",
+        "text": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all. Either choice leaves a mark on the caravan.",
+        "text_variants": {
+            "quartermaster": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all. You count the cost and hate the math.",
+            "bard": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all. You hear the song this will become.",
+            "infobroker": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all. You think of who will retell it."
+        },
+        "death": {
+            "guides": [
+                "guide_1",
+                "guide_2",
+                "guide_3"
+            ],
+            "minSupplies": 10,
+            "minMorale": 5,
+            "costSupplies": 10,
+            "moraleLoss": 3
         }
-      }
-    ]
-  },
-  {
-    "id": "p013",
-    "scene": "camp-03",
-    "act": 1,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: the chest hums softly.",
-    "note": "Choose who to speak with as the road shifts into giantland."
-  },
-  {
-    "id": "p014",
-    "scene": "act1-05_arrival",
-    "act": 1,
-    "kind": "narration",
-    "image": "assets/panels/cover.svg",
-    "title": "Arrival",
-    "text": "Giantland rises like a wall of storm and stone. A shaman waits at the threshold."
-  },
-  {
-    "id": "p015",
-    "scene": "act1-06_shaman",
-    "act": 1,
-    "kind": "choice",
-    "image": "assets/panels/pub_orb_game.svg",
-    "prompt": "The shaman offers a blessing.",
-    "text": "The blessing is a ritual of safety and consequence. The pilgrims look to you.",
-    "emphasis": "ritual",
-    "choices": [
-      {
-        "label": "Accept the blessing",
-        "desc": "Morale rises; the rite binds you.",
-        "effects": {
-          "stats": {
-            "morale": 2,
-            "suspicion": -1
-          },
-          "flags": {
-            "blessing_received": true
-          },
-          "unlock": {
-            "globalNodes": [
-              "blessing_echo"
-            ]
-          }
+    },
+    {
+        "id": "p028",
+        "scene": "camp-06",
+        "act": 2,
+        "kind": "camp",
+        "image": "assets/panels/mom_doorway.svg",
+        "prompt": "Camp night: the survivor(s) carry it differently.",
+        "prompt_variants": {
+            "historian": "Camp night: the survivors edit the story with silence.",
+            "leatherworker": "Camp night: the survivors hold their straps tight.",
+            "relicator": "Camp night: the survivors keep the chest at arm\u2019s length."
+        },
+        "note": "Spend your remaining actions to keep the party together. Grief doesn\u2019t argue, it just settles."
+    },
+    {
+        "id": "p029",
+        "scene": "act2-06_master_join",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/workshop_monologue.svg",
+        "prompt": "A village master and apprentice seek passage.",
+        "text": "Master Orlan and Pip offer guidance if you escort them past the league patrols. Orlan watches your hands before he trusts your answer.",
+        "text_variants": {
+            "smith": "Master Orlan and Pip offer guidance if you escort them past the league patrols. Orlan watches your hands the way a smith judges steel.",
+            "architect": "Master Orlan and Pip offer guidance if you escort them past the league patrols. Orlan watches how you size up the road, not your words.",
+            "quartermaster": "Master Orlan and Pip offer guidance if you escort them past the league patrols. You hear two mouths and two futures in your tally."
+        },
+        "emphasis": "craft",
+        "choices": [
+            {
+                "label": "Accept them into the caravan",
+                "desc": "More hands, more mouths.",
+                "effects": {
+                    "party": {
+                        "add": [
+                            "master",
+                            "apprentice"
+                        ]
+                    },
+                    "stats": {
+                        "supplies": -2,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "master_joined": true,
+                        "apprentice_joined": true
+                    },
+                    "unlock": {
+                        "npcNodes": [
+                            {
+                                "npcKey": "master",
+                                "nodeKey": "master_lesson"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "label": "Decline but offer supplies",
+                "desc": "Costs supplies, lowers suspicion.",
+                "effects": {
+                    "stats": {
+                        "supplies": -3,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "master_declined": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p030",
+        "scene": "act2-07_refugees_join",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Refugees appear on the road.",
+        "text": "A mother and two children ask to travel with you until the river. Their eyes are steady in a way you wish you could be.",
+        "text_variants": {
+            "leatherworker": "A mother and two children ask to travel with you until the river. You see the wear in their boots and how far fear has walked with them.",
+            "quartermaster": "A mother and two children ask to travel with you until the river. You feel the weight of three more bowls before you answer.",
+            "bard": "A mother and two children ask to travel with you until the river. Their silence is a story that wants a kinder ending."
+        },
+        "emphasis": "camp",
+        "choices": [
+            {
+                "label": "Take them in",
+                "desc": "Morale rises; supplies thin.",
+                "effects": {
+                    "party": {
+                        "add": [
+                            "mother_ref",
+                            "child_1",
+                            "child_2"
+                        ]
+                    },
+                    "stats": {
+                        "supplies": -3,
+                        "morale": 2
+                    },
+                    "flags": {
+                        "refugees_joined": true
+                    }
+                }
+            },
+            {
+                "label": "Give them directions only",
+                "desc": "You keep distance but feel the loss.",
+                "effects": {
+                    "stats": {
+                        "morale": -1,
+                        "suspicion": 1
+                    },
+                    "flags": {
+                        "refugees_declined": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p031",
+        "scene": "act2-08_final_push",
+        "act": 2,
+        "kind": "choice",
+        "image": "assets/panels/cover.svg",
+        "prompt": "Final push toward home.",
+        "text": "The last stretch is a rush of rain and pursuit. The road narrows, and every choice feels like a promise you can\u2019t take back.",
+        "text_variants": {
+            "cartographer": "The last stretch is a rush of rain and pursuit. The road narrows, and every shortcut feels like a confession.",
+            "quartermaster": "The last stretch is a rush of rain and pursuit. The road narrows, and every choice spends more than it saves.",
+            "smith": "The last stretch is a rush of rain and pursuit. The road narrows, and you know which joints will fail first."
+        },
+        "emphasis": "travel",
+        "choices": [
+            {
+                "label": "Force a straight march",
+                "desc": "Fast but exhausting.",
+                "effects": {
+                    "stats": {
+                        "supplies": -2,
+                        "wounds": 1,
+                        "morale": 1
+                    },
+                    "flags": {
+                        "final_push_direct": true
+                    }
+                }
+            },
+            {
+                "label": "Take a hidden cut through the ridges",
+                "desc": "Slower, safer.",
+                "effects": {
+                    "stats": {
+                        "supplies": -1,
+                        "suspicion": -1
+                    },
+                    "flags": {
+                        "final_push_hidden": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "p032",
+        "scene": "end-01_homecoming",
+        "act": 3,
+        "kind": "ending",
+        "image": "assets/panels/cover.svg",
+        "title": "Homecoming",
+        "text": "The forge feels smaller. The road left marks on everyone who made it back, and the chest is still sealed \u2014 but now you know what it will cost to open it.",
+        "text_variants": {
+            "smith": "The forge feels smaller. The road left marks on everyone who made it back, and the chest is still sealed \u2014 but now you know which tool will break first.",
+            "historian": "The forge feels smaller. The road left marks on everyone who made it back, and the chest is still sealed \u2014 but now you know which names will be asked for.",
+            "relicator": "The forge feels smaller. The road left marks on everyone who made it back, and the chest is still sealed \u2014 but now you can feel the shape of the lock inside it."
         }
-      },
-      {
-        "label": "Ask for proof of safety",
-        "desc": "Slows the rite; suspicion rises.",
-        "effects": {
-          "stats": {
-            "morale": -1,
-            "suspicion": 1
-          },
-          "flags": {
-            "blessing_questioned": true
-          }
-        }
-      },
-      {
-        "label": "Decline the blessing",
-        "desc": "You keep control, but the party worries.",
-        "effects": {
-          "stats": {
-            "morale": -2,
-            "suspicion": 1
-          },
-          "flags": {
-            "blessing_declined": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p016",
-    "scene": "act1-07_proving",
-    "act": 1,
-    "kind": "choice",
-    "image": "assets/panels/workshop_monologue.svg",
-    "prompt": "The proving trial begins.",
-    "text": "To reach the blessing stone, you must prove your craft to the giants.",
-    "emphasis": "ritual",
-    "choices": [
-      {
-        "label": "Demonstrate a steady craft",
-        "desc": "Safe, measured, and respected.",
-        "effects": {
-          "stats": {
-            "morale": 1,
-            "suspicion": -1
-          },
-          "flags": {
-            "proving_steady": true
-          }
-        }
-      },
-      {
-        "label": "Show a daring flourish",
-        "desc": "Impresses the giants, but risks wounds.",
-        "effects": {
-          "stats": {
-            "morale": 2,
-            "wounds": 1
-          },
-          "flags": {
-            "proving_daring": true
-          }
-        }
-      },
-      {
-        "label": "Offer a scholarly explanation",
-        "desc": "Wins respect; costs time.",
-        "effects": {
-          "stats": {
-            "supplies": -2,
-            "morale": 1
-          },
-          "flags": {
-            "proving_lore": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p017",
-    "scene": "act1-08_blessing",
-    "act": 1,
-    "kind": "narration",
-    "image": "assets/panels/cover.svg",
-    "title": "Blessing Stone",
-    "text": "The shaman lays a hand on the chest. The pilgrims stand in a circle as the stone hums with a promise you can\u2019t yet translate.",
-    "text_variants": {
-      "relicator": "The shaman lays a hand on the chest. The stone hums with a pattern you can almost echo, like a spell with missing notes."
     }
-  },
-  {
-    "id": "p018",
-    "scene": "interlude-01_city_gate",
-    "act": 1.5,
-    "kind": "narration",
-    "image": "assets/panels/cover.svg",
-    "title": "Interlude \u2014 Giant City",
-    "text": "The pilgrims settle their affairs with the giant elders. You walk the city alone, letting the scale of it recalibrate your breath."
-  },
-  {
-    "id": "p019",
-    "scene": "interlude-02_city_market",
-    "act": 1.5,
-    "kind": "choice",
-    "image": "assets/panels/pub_orb_game.svg",
-    "prompt": "A giant market beckons.",
-    "text": "You have a short window to barter before the return journey.",
-    "emphasis": "negotiation",
-    "choices": [
-      {
-        "label": "Trade for supplies",
-        "desc": "Costly but steady.",
-        "effects": {
-          "stats": {
-            "supplies": 5,
-            "suspicion": 1
-          },
-          "flags": {
-            "market_trade": true
-          }
-        }
-      },
-      {
-        "label": "Buy quiet passage",
-        "desc": "Reduces suspicion, costs supplies.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "suspicion": -2
-          },
-          "flags": {
-            "market_passage": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p020",
-    "scene": "interlude-03_city_streets",
-    "act": 1.5,
-    "kind": "narration",
-    "image": "assets/panels/cover.svg",
-    "title": "Leaving the City",
-    "text": "Jeffery returns with the pilgrims. The chest feels warmer, as if it listened while you wandered."
-  },
-  {
-    "id": "p021",
-    "scene": "act2-01_hire_guides",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/workshop_monologue.svg",
-    "prompt": "Act 2 begins. Hire guides for the return journey.",
-    "text": "The league\u2019s shadow stretches longer. The right guides can buy you a chance.",
-    "choices": [
-      {
-        "label": "Pay premium for professionals",
-        "desc": "Costs supplies, boosts morale.",
-        "effects": {
-          "stats": {
-            "supplies": -8,
-            "morale": 2
-          },
-          "party": {
-            "add": [
-              "guide_1",
-              "guide_2",
-              "guide_3"
-            ]
-          },
-          "flags": {
-            "guides_hired": true
-          }
-        }
-      },
-      {
-        "label": "Negotiate hard",
-        "desc": "Cheaper, but the tension rises.",
-        "effects": {
-          "stats": {
-            "supplies": -4,
-            "morale": -1,
-            "suspicion": 1
-          },
-          "party": {
-            "add": [
-              "guide_1",
-              "guide_2",
-              "guide_3"
-            ]
-          },
-          "flags": {
-            "guides_hired": true
-          }
-        }
-      },
-      {
-        "label": "Call in a favor",
-        "desc": "Spend reputation; pay in suspicion.",
-        "effects": {
-          "stats": {
-            "supplies": -2,
-            "suspicion": 2
-          },
-          "party": {
-            "add": [
-              "guide_1",
-              "guide_2",
-              "guide_3"
-            ]
-          },
-          "flags": {
-            "guides_hired": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p022",
-    "scene": "camp-04",
-    "act": 2,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: new voices join the fire.",
-    "note": "Guides and pilgrims swap warnings about the road home."
-  },
-  {
-    "id": "p023",
-    "scene": "act2-02_league_pressure",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/pub_orb_game.svg",
-    "prompt": "League pressure on the return path.",
-    "text": "A league envoy offers 'protection' in exchange for the chest.",
-    "emphasis": "intrigue",
-    "choices": [
-      {
-        "label": "Feed them a false trail",
-        "desc": "Suspicion drops, morale steadies.",
-        "effects": {
-          "stats": {
-            "suspicion": -2,
-            "morale": 1
-          },
-          "flags": {
-            "league_false_trail": true
-          }
-        }
-      },
-      {
-        "label": "Refuse and press on",
-        "desc": "Bold, but risky.",
-        "effects": {
-          "stats": {
-            "suspicion": 2,
-            "morale": 1
-          },
-          "flags": {
-            "league_refused": true
-          }
-        }
-      },
-      {
-        "label": "Trade a minor relic",
-        "desc": "Costs supplies, buys time.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "suspicion": -1
-          },
-          "flags": {
-            "league_bribed": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p024",
-    "scene": "act2-03_holdout",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Holdout in the ruin.",
-    "text": "A league hunter presses you. You must hold in a ruin until dawn.",
-    "emphasis": "defense",
-    "choices": [
-      {
-        "label": "Fortify and wait",
-        "desc": "Defensive stance; minor supply loss.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "morale": 1
-          },
-          "flags": {
-            "holdout_fortify": true
-          }
-        }
-      },
-      {
-        "label": "Slip away under darkness",
-        "desc": "Lower suspicion, but morale dips.",
-        "effects": {
-          "stats": {
-            "morale": -1,
-            "suspicion": -1
-          },
-          "flags": {
-            "holdout_slip": true
-          }
-        }
-      },
-      {
-        "label": "Confront and bluff",
-        "desc": "Risk wounds for a bold win.",
-        "effects": {
-          "stats": {
-            "suspicion": 2,
-            "morale": 2,
-            "wounds": 1
-          },
-          "flags": {
-            "holdout_bluff": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p025",
-    "scene": "camp-05",
-    "act": 2,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: the league\u2019s shadow lengthens.",
-    "note": "Spend actions to steady the party before the next push."
-  },
-  {
-    "id": "p026",
-    "scene": "act2-04_ambush_setup",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Scouts report an ambush ahead.",
-    "text": "The guides ask for a call. The league hunter will strike either way.",
-    "emphasis": "travel",
-    "choices": [
-      {
-        "label": "Build a barricade and absorb the hit",
-        "desc": "Costs supplies, lowers wounds.",
-        "effects": {
-          "stats": {
-            "supplies": -4,
-            "wounds": -1
-          },
-          "flags": {
-            "ambush_barricade": true
-          }
-        }
-      },
-      {
-        "label": "Scatter and regroup",
-        "desc": "Risks morale, lowers suspicion.",
-        "effects": {
-          "stats": {
-            "morale": -2,
-            "suspicion": -1
-          },
-          "flags": {
-            "ambush_scatter": true
-          }
-        }
-      },
-      {
-        "label": "Lure the hunter toward the guides",
-        "desc": "Cruel but efficient.",
-        "effects": {
-          "stats": {
-            "suspicion": 2,
-            "morale": -1
-          },
-          "flags": {
-            "ambush_lure": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p027",
-    "scene": "act2-05_death_choice",
-    "act": 2,
-    "kind": "death_choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Ambush. Someone will die unless you pay a cost.",
-    "text": "The guides are between you and the hunter. You can pull one back first, or spend supplies to save them all.",
-    "death": {
-      "guides": [
-        "guide_1",
-        "guide_2",
-        "guide_3"
-      ],
-      "minSupplies": 10,
-      "minMorale": 5,
-      "costSupplies": 10,
-      "moraleLoss": 3
-    }
-  },
-  {
-    "id": "p028",
-    "scene": "camp-06",
-    "act": 2,
-    "kind": "camp",
-    "image": "assets/panels/mom_doorway.svg",
-    "prompt": "Camp night: the survivor(s) carry it differently.",
-    "note": "Spend your remaining actions to keep the party together."
-  },
-  {
-    "id": "p029",
-    "scene": "act2-06_master_join",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/workshop_monologue.svg",
-    "prompt": "A village master and apprentice seek passage.",
-    "text": "Master Orlan and Pip offer guidance if you escort them past the league patrols.",
-    "emphasis": "craft",
-    "choices": [
-      {
-        "label": "Accept them into the caravan",
-        "desc": "More hands, more mouths.",
-        "effects": {
-          "party": {
-            "add": [
-              "master",
-              "apprentice"
-            ]
-          },
-          "stats": {
-            "supplies": -2,
-            "morale": 1
-          },
-          "flags": {
-            "master_joined": true,
-            "apprentice_joined": true
-          },
-          "unlock": {
-            "npcNodes": [
-              {
-                "npcKey": "master",
-                "nodeKey": "master_lesson"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "label": "Decline but offer supplies",
-        "desc": "Costs supplies, lowers suspicion.",
-        "effects": {
-          "stats": {
-            "supplies": -3,
-            "suspicion": -1
-          },
-          "flags": {
-            "master_declined": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p030",
-    "scene": "act2-07_refugees_join",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Refugees appear on the road.",
-    "text": "A mother and two children ask to travel with you until the river.",
-    "emphasis": "camp",
-    "choices": [
-      {
-        "label": "Take them in",
-        "desc": "Morale rises; supplies thin.",
-        "effects": {
-          "party": {
-            "add": [
-              "mother_ref",
-              "child_1",
-              "child_2"
-            ]
-          },
-          "stats": {
-            "supplies": -3,
-            "morale": 2
-          },
-          "flags": {
-            "refugees_joined": true
-          }
-        }
-      },
-      {
-        "label": "Give them directions only",
-        "desc": "You keep distance but feel the loss.",
-        "effects": {
-          "stats": {
-            "morale": -1,
-            "suspicion": 1
-          },
-          "flags": {
-            "refugees_declined": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p031",
-    "scene": "act2-08_final_push",
-    "act": 2,
-    "kind": "choice",
-    "image": "assets/panels/cover.svg",
-    "prompt": "Final push toward home.",
-    "text": "The last stretch is a rush of rain and pursuit.",
-    "emphasis": "travel",
-    "choices": [
-      {
-        "label": "Force a straight march",
-        "desc": "Fast but exhausting.",
-        "effects": {
-          "stats": {
-            "supplies": -2,
-            "wounds": 1,
-            "morale": 1
-          },
-          "flags": {
-            "final_push_direct": true
-          }
-        }
-      },
-      {
-        "label": "Take a hidden cut through the ridges",
-        "desc": "Slower, safer.",
-        "effects": {
-          "stats": {
-            "supplies": -1,
-            "suspicion": -1
-          },
-          "flags": {
-            "final_push_hidden": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "p032",
-    "scene": "end-01_homecoming",
-    "act": 3,
-    "kind": "ending",
-    "image": "assets/panels/cover.svg",
-    "title": "Homecoming",
-    "text": "The forge feels smaller. The road left marks on everyone who made it back. The chest is still sealed \u2014 but now you know what it will cost to open it."
-  }
 ]
