@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "style_guide": "docs/art-direction-v3.md",
+  "assets": [
+    {
+      "id": "neon_workshop",
+      "brief": "warm magical workshop, young ordinary craftsperson, practical tools",
+      "asset_path": "assets/scenes/neon_workshop.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "heroes_camp",
+      "brief": "four adventurers sharing human moment at campfire, not battle",
+      "asset_path": "assets/scenes/heroes_camp.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "ravine",
+      "brief": "dangerous stormglass ravine and travel caravan",
+      "asset_path": "assets/scenes/ravine.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "skybridge",
+      "brief": "cracked sky bridge across dramatic chasm",
+      "asset_path": "assets/scenes/skybridge.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "giant_city",
+      "brief": "small travelers dwarfed by giant-scale architecture and spectators",
+      "asset_path": "assets/scenes/giant_city.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "tribute_hall",
+      "brief": "formal payment/tribute procession in giant royal hall",
+      "asset_path": "assets/scenes/tribute_hall.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "teleport_departure",
+      "brief": "adventuring party teleports away; stranded ordinary travelers remain",
+      "asset_path": "assets/scenes/teleport_departure.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "return_market",
+      "brief": "young craftsperson securing guide help in foreign market",
+      "asset_path": "assets/scenes/return_market.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "return_camp",
+      "brief": "modest vulnerable caravan around fire under threatening weather",
+      "asset_path": "assets/scenes/return_camp.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "broken_crossing",
+      "brief": "damaged bridge and improvised survival equipment",
+      "asset_path": "assets/scenes/broken_crossing.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "road_watch",
+      "brief": "tense watch over caravan on remote mountain road",
+      "asset_path": "assets/scenes/road_watch.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "ambush",
+      "brief": "caravan caught in dangerous ambush, non-graphic",
+      "asset_path": "assets/scenes/ambush.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "final_road",
+      "brief": "exhausted mixed-age caravan on final road home",
+      "asset_path": "assets/scenes/final_road.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "home_workshop",
+      "brief": "homecoming to familiar workshop, emotional restraint",
+      "asset_path": "assets/scenes/home_workshop.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "keepsake",
+      "brief": "handcrafted gift or keepsake on worn workbench",
+      "asset_path": "assets/scenes/keepsake.png",
+      "status": "not_generated",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}
