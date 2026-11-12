@@ -1,0 +1,137 @@
+[
+  {
+    "id": "ch01",
+    "act_id": "act-01",
+    "title": "Neon Before Dawn",
+    "synopsis": "Workshop, mother, Belander, craft identity; departure",
+    "hero_art_id": "neon_workshop",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch02",
+    "act_id": "act-01",
+    "title": "The Super Naturals",
+    "synopsis": "Meet heroes as people; stories and initial bonds",
+    "hero_art_id": "heroes_camp",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch03",
+    "act_id": "act-01",
+    "title": "The Road Teaches",
+    "synopsis": "Ravine, camp, merchant, travel skills and connections",
+    "hero_art_id": "ravine",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch04",
+    "act_id": "act-01",
+    "title": "Under Their Protection",
+    "synopsis": "Danger is real, but heroes handle combat; Jacob observes",
+    "hero_art_id": "skybridge",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch05",
+    "act_id": "act-02",
+    "title": "City of Giants",
+    "synopsis": "Giant hierarchy, spectacle culture, pilgrimage arrival",
+    "hero_art_id": "giant_city",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch06",
+    "act_id": "act-02",
+    "title": "Tribute and Reflection",
+    "synopsis": "League payment to giant king, shaman, reflective choices",
+    "hero_art_id": "tribute_hall",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch07",
+    "act_id": "act-02",
+    "title": "Not on the Manifest",
+    "synopsis": "League teleports adventurers away; Jacob and noncombatants stranded",
+    "hero_art_id": "teleport_departure",
+    "scene_status": "outline",
+    "canon_review": "confirmed separation; exact staging proposed"
+  },
+  {
+    "id": "ch08",
+    "act_id": "act-03",
+    "title": "A Way Home",
+    "synopsis": "Assess resources, seek route, meet hired guides",
+    "hero_art_id": "return_market",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch09",
+    "act_id": "act-03",
+    "title": "A Different Caravan",
+    "synopsis": "New companions, responsibility, early survival echoes",
+    "hero_art_id": "return_camp",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch10",
+    "act_id": "act-03",
+    "title": "The Road Remembers",
+    "synopsis": "Bridge, negotiations, repairs; earned alternatives",
+    "hero_art_id": "broken_crossing",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch11",
+    "act_id": "act-03",
+    "title": "The Cost of Protection",
+    "synopsis": "League pressure only if canon confirmed; increasing danger",
+    "hero_art_id": "road_watch",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch12",
+    "act_id": "act-03",
+    "title": "The Ambush",
+    "synopsis": "Rescue alternatives, costs, optional guide death",
+    "hero_art_id": "ambush",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch13",
+    "act_id": "act-03",
+    "title": "Carry Each Other",
+    "synopsis": "Aftermath, vulnerable companions, survival climax",
+    "hero_art_id": "final_road",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch14",
+    "act_id": "act-04",
+    "title": "The Familiar Door",
+    "synopsis": "Arrival in Neon, home and workshop reunion",
+    "hero_art_id": "home_workshop",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  },
+  {
+    "id": "ch15",
+    "act_id": "act-04",
+    "title": "What Remains",
+    "synopsis": "Master recognition, gifts, companions, tailored epilogue",
+    "hero_art_id": "keepsake",
+    "scene_status": "outline",
+    "canon_review": "review pending"
+  }
+]
