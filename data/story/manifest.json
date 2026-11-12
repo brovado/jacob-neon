@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "project": "Jacob: Neon Pilgrimage",
+  "status": "production-outline",
+  "legacy_source": "data/panels.json",
+  "acts": [
+    {
+      "id": "act-01",
+      "title": "The Borrowed Adventure",
+      "chapters": [
+        "ch01",
+        "ch02",
+        "ch03",
+        "ch04"
+      ]
+    },
+    {
+      "id": "act-02",
+      "title": "The Price of Wonder",
+      "chapters": [
+        "ch05",
+        "ch06",
+        "ch07"
+      ]
+    },
+    {
+      "id": "act-03",
+      "title": "The Long Road Home",
+      "chapters": [
+        "ch08",
+        "ch09",
+        "ch10",
+        "ch11",
+        "ch12",
+        "ch13"
+      ]
+    },
+    {
+      "id": "act-04",
+      "title": "The Weight of Home",
+      "chapters": [
+        "ch14",
+        "ch15"
+      ]
+    }
+  ],
+  "chapter_catalog": "data/story/chapters.json",
+  "art_catalog": "data/story/art-catalog.json",
+  "runtime_status": "not yet wired into src/app.js"
+}
